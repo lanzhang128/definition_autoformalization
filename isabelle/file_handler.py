@@ -40,15 +40,13 @@ def parse_error_file(error_log_path, thy_file_path):
             if error_lines[i] > len(thy_lines):
                 continue
 
-            error_code = thy_lines[error_lines[i]-1].rstrip()
             detail = errors_details[i]
             line, start, end = int(detail.split()[3][:-1]), int(detail.split()[5][:-1]), int(detail.split()[7][:-1])
             assert line == error_lines[i]
             trigger = offset_transfer(thy_file_path, start, end)
             message = detail[detail.find(':')+2:]
             syntax_error = (f'Identified error on line: {line}, trigger: {trigger}\n'
-                            f'Error message: {message}\n'
-                            f'Code Causing Error: \n{error_code}\n')
+                            f'Error message: {message}\n')
 
             all_syntax_error += f'{syntax_error}\n'
             if i == 0:
