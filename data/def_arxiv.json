@@ -1,0 +1,182 @@
+{
+    "0": {
+        "id": 0,
+        "source": "https://arxiv.org/abs/2106.10272",
+        "latex": "Definition of c-Convex: Let $(\\mathcal{M}, g)$ be a smooth compact Riemannian manifold without boundary, and $c(x,y)=\\frac{1}{2}d(x,y)^2$, where $d(x,y)$ is the intrinsic distance function on the manifold. A function $\\phi:\\mathcal{M}\\rightarrow \\mathbb{R}\\cup\\{+\\infty\\}$ is $c$-convex if it is not identically $+\\infty$ and there exists $\\psi:\\mathcal{M}\\rightarrow\\mathbb{R}\\cup\\{\\pm \\infty\\}$ such that\n  \\begin{equation}\n      \\phi(x)=\\sup_{y\\in\\mathcal{M}} (-c(x,y)+\\psi(y))\n  \\end{equation}",
+        "preliminary": ""
+    },
+    "1": {
+        "id": 1,
+        "source": "https://arxiv.org/abs/2106.10272",
+        "latex": "Definition of c-Concave: Let $(\\mathcal{M}, g)$ be a smooth compact Riemannian manifold without boundary, and $c(x,y)=\\frac{1}{2}d(x,y)^2$, where $d(x,y)$ is the intrinsic distance function on the manifold. A function $\\phi:\\mathcal{M}\\rightarrow \\mathbb{R}\\cup\\{-\\infty\\}$ is $c$-concave if it is not identically $-\\infty$ and there exists $\\psi:\\mathcal{M}\\rightarrow\\mathbb{R}\\cup\\{\\pm \\infty\\}$ such that\n  \\begin{equation}\n      \\phi(x)=\\inf_{y\\in\\mathcal{M}} (c(x,y)+\\psi(y))\n  \\end{equation}",
+        "preliminary": ""
+    },
+    "2": {
+        "id": 2,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of Adjacent: Data sets $D, D'$ are said to be adjacent, if one is obtained by removing or adding a single data item.",
+        "preliminary": ""
+    },
+    "3": {
+        "id": 3,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of Differential Privacy: A randomized mechanism $\\mathcal{M}$ is $(\\varepsilon,\\delta)$-differentially private if for all adjacent $D,D'$, and for any subset of possible outputs $S$: $\\mathbb{P}(\\mathcal{M}(D) \\in S)\\leq\\mathrm{e}^{\\varepsilon}\\mathbb{P}(\\mathcal{M}(D') \\in S) + \\delta$. Pure differential privacy is the special case of approximate differential privacy in which $\\delta=0$.",
+        "preliminary": "Definition of Adjacent: Data sets $D, D'$ are said to be adjacent, if one is obtained by removing or adding a single data item."
+    },
+    "4": {
+        "id": 4,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of Sensitivity: Let $f=(f_1, \\cdots, f_m)$ be $m$ real valued functions that take a database as input. The sensitivity of $f$, denoted as $s$, is defined as \\[s_f = \\max_{D,D'} \\max_{1 \\le i \\le m} |f_i(D)-f_i(D')| \\,,\\] where the maximum is taken over any adjacent databases $D$ and $D'$.",
+        "preliminary": "Definition of Adjacent: Data sets $D, D'$ are said to be adjacent, if one is obtained by removing or adding a single data item."
+    },
+    "5": {
+        "id": 5,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of Ergodicity Coefficient: For a $m \\times m$ stochastic matrix $\\boldsymbol{A}$, the ergodicity coefficient $\\tau_1(\\boldsymbol{A})$ of matrix $\\boldsymbol{A}$ is defined as \\[\\tau_1(\\boldsymbol{A}) \\equiv \\sup_{ \\substack{\\|\\boldsymbol{v}\\|_1=1 \\\\\\boldsymbol{v}^\\top e=0}} \\|\\boldsymbol{v}^\\top \\boldsymbol{A}\\|_1 \\,,\\] where $e$ is the vector of all ones.",
+        "preliminary": ""
+    },
+    "6": {
+        "id": 6,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of Conditional number of a Markov Chain: Let $\\boldsymbol{P}$ denote the transition probability matrix of an $m$ state Markov chain $\\mathcal{C}$, and $\\boldsymbol{\\pi}$ denotes the stationary distribution vector. The perturbed matrix $\\tilde{\\boldsymbol{P}}$ is the transition probability matrix of another $n$ state Markov chain $\\tilde{\\mathcal{C}}$ with stationary distribution vector $\\tilde{\\boldsymbol{\\pi}}$. The conditional number $\\kappa$ of a Markov chain $\\mathcal{C}$ is defined by the following perturbation bound $\\|\\boldsymbol{\\pi}-\\tilde{\\boldsymbol{\\pi}}\\|_{\\infty} \\le \\kappa \\|\\boldsymbol{P}-\\tilde{\\boldsymbol{P}}\\|_{\\infty} \\,.$",
+        "preliminary": ""
+    },
+    "7": {
+        "id": 7,
+        "source": "https://arxiv.org/abs/2105.08233",
+        "latex": "Definition of $\\tau$-Closeness for Vectors: For two vectors $q=(q_1,\\ldots, q_m)$ and $q'=(q'_1,\\ldots,q'_m)$, we say $q$ is $\\tau$-close with respect to $q'$ if for each $1\\leq i\\leq m$, $|q_i-q'_i|\\leq \\tau q_i(1-q_i)$.",
+        "preliminary": ""
+    },
+    "8": {
+        "id": 8,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Covering Number: Given a metric space $(\\mathcal{S}, \\rho)$, and a subset $\\tilde{\\mathcal{S}} \\subset \\mathcal{S}$, we say that a subset $\\hat{\\mathcal{S}}$ of $\\tilde{\\mathcal{S}}$ is a $\\epsilon$-cover of $\\tilde{\\mathcal{S}}$, if $\\forall \\tilde{s} \\in \\tilde{\\mathcal{S}}$, $\\exists \\hat{s} \\in \\hat{\\mathcal{S}}$ such that $\\rho(\\tilde{s}, \\hat{s}) \\leq \\epsilon$. The $\\epsilon$-covering number of $\\tilde{\\mathcal{S}}$ is\n    \\begin{displaymath}\n        \\mathcal{N}_{\\epsilon}(\\tilde{\\mathcal{S}}, \\rho) = \\min\\{ |\\hat{\\mathcal{S}}|:\n        \\hat{\\mathcal{S}} \\text{ is an } \\epsilon\\text{-covering of } \\tilde{\\mathcal{S}} \\} .\n    \\end{displaymath}",
+        "preliminary": ""
+    },
+    "9": {
+        "id": 9,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of $(\\rho, \\epsilon)$-Adversarial Robustness: Given a multi-class classifier $f: \\mathcal{X} \\rightarrow \\mathbb{R}^{L}$, and a metric $\\rho$ on $\\mathcal{X}$, where $L$ is the number of classes, $f$ is said to be adversarially robust w.r.t. adversarial perturbation of strength $\\epsilon$, if there exists an $\\epsilon > 0$ such that $\\forall z = (\\boldsymbol{x}, y) \\in \\mathcal{Z}$ and $ \\delta\\boldsymbol{x} \\in \\{\\rho(\\delta \\boldsymbol{x}) \\leq \\epsilon \\}$, we have\n    \\begin{displaymath}\n        f_{\\hat{y}}(\\boldsymbol{x} + \\delta\\boldsymbol{x}) - f_{i}(\\boldsymbol{x} + \\delta\\boldsymbol{x}) \\geq 0,\n    \\end{displaymath}\n    where $\\hat{y} = \\arg\\max_{j}f_j(\\boldsymbol{x})$ and $i \\not= \\hat{y} \\in \\mathcal{Y}$.",
+        "preliminary": "Assume an instance space $\\mathcal{Z} = \\mathcal{X} \\times \\mathcal{Y}$, where $\\mathcal{X}$ is the space of input data, and $\\mathcal{Y}$ is the label space."
+    },
+    "10": {
+        "id": 10,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Margin Operator: A margin operator $\\mathcal{M}: \\mathbb{R}^{L} \\times \\{1, \\ldots, L\\} \\rightarrow \\mathbb{R}$ is defined as\n    \\begin{displaymath}\n        \\mathcal{M}(\\boldsymbol{s}, y) := s_{y} - \\max_{i\\not= y}s_{i}\n    \\end{displaymath}",
+        "preliminary": ""
+    },
+    "11": {
+        "id": 11,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Ramp Loss: The ramp loss $l_{\\gamma}: \\mathbb{R} \\rightarrow \\mathbb{R}^{+}$ is defined as\n    \\begin{displaymath}\n        l_{\\gamma} (r) :=\n        \\begin{cases}\n        0            & r < -\\gamma        \\\\\n        1 + r/\\gamma & r \\in [-\\gamma, 0] \\\\\n        1            & r > 0\n        \\end{cases}\n    \\end{displaymath}",
+        "preliminary": ""
+    },
+    "12": {
+        "id": 12,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Ramp Risk: Given a classifier $f: \\mathcal{X} \\rightarrow \\mathbb{R}^{L}$, ramp risk is the risk defined as\n    \\begin{displaymath}\n        R_{\\gamma}(f) := \\mathbb{E}(l_{\\gamma}(- \\mathcal{M}(f(X), Y))),\n    \\end{displaymath}\n    where $X, Y$ are random variables in the instance space $\\mathcal{Z}$.",
+        "preliminary": "Assume an instance space $\\mathcal{Z} = \\mathcal{X} \\times \\mathcal{Y}$, where $\\mathcal{X}$ is the space of input data, and $\\mathcal{Y}$ is the label space.\n\nDefinition of Margin Operator: A margin operator $\\mathcal{M}: \\mathbb{R}^{L} \\times \\{1, \\ldots, L\\} \\rightarrow \\mathbb{R}$ is defined as\n    \\begin{displaymath}\n        \\mathcal{M}(\\boldsymbol{s}, y) := s_{y} - \\max_{i\\not= y}s_{i}\n    \\end{displaymath}\n\nDefinition of Ramp Loss: The ramp loss $l_{\\gamma}: \\mathbb{R} \\rightarrow \\mathbb{R}^{+}$ is defined as\n    \\begin{displaymath}\n        l_{\\gamma} (r) :=\n        \\begin{cases}\n        0            & r < -\\gamma        \\\\\n        1 + r/\\gamma & r \\in [-\\gamma, 0] \\\\\n        1            & r > 0\n        \\end{cases}\n    \\end{displaymath}"
+    },
+    "13": {
+        "id": 13,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Smallest Instance-Space Margin: Given an element $z = (\\boldsymbol{x}, y) \\in \\mathcal{Z}$, let $v(\\boldsymbol{x})$ be the distance from $\\boldsymbol{x}$ to its closest point on the decision boundary, i.e., the instance-space margin (IM) of example $\\boldsymbol{x}$. Given a covering set $\\hat{S}$ of $\\mathcal{Z}$, let\n\\begin{equation}\n  v_{\\min} = \\min_{\\boldsymbol{x} \\in \\{\\boldsymbol{x} \\in \\mathcal{X} |  \\exists\n    \\boldsymbol{x}' \\in \\hat{S}_m, ||\\boldsymbol{x} - \\boldsymbol{x}'||_2 \\leq \\epsilon\\}} v(\\boldsymbol{x}),\n\\end{equation}\nwhere $\\hat{S}_m := \\{\\boldsymbol{x}' \\in \\hat{S} | \\exists \\boldsymbol{x}_i \\in S_m, ||\\boldsymbol{x}_i - \\boldsymbol{x}'||_2 \\leq \\epsilon \\}$. $v_{\\min}$ is the smallest instance-space margin of elements in the covering balls that contain training examples.",
+        "preliminary": "Assume an instance space $\\mathcal{Z} = \\mathcal{X} \\times \\mathcal{Y}$, where $\\mathcal{X}$ is the space of input data, and $\\mathcal{Y}$ is the label space. $Z := (X, Y)$ are the random variables with an unknown distribution $\\mu$, from which we draw samples. We use $S_m = \\{ z_i = (\\boldsymbol{x}_i, y_i)\\}_{i=1}^{m}$ to denote the training set of size $m$ whose examples are drawn independently and identically distributed (i.i.d.) by sampling $Z$.\n\nDefinition of Covering Number: Given a metric space $(\\mathcal{S}, \\rho)$, and a subset $\\tilde{\\mathcal{S}} \\subset \\mathcal{S}$, we say that a subset $\\hat{\\mathcal{S}}$ of $\\tilde{\\mathcal{S}}$ is a $\\epsilon$-cover of $\\tilde{\\mathcal{S}}$, if $\\forall \\tilde{s} \\in \\tilde{\\mathcal{S}}$, $\\exists \\hat{s} \\in \\hat{\\mathcal{S}}$ such that $\\rho(\\tilde{s}, \\hat{s}) \\leq \\epsilon$. The $\\epsilon$-covering number of $\\tilde{\\mathcal{S}}$ is\n    \\begin{displaymath}\n        \\mathcal{N}_{\\epsilon}(\\tilde{\\mathcal{S}}, \\rho) = \\min\\{ |\\hat{\\mathcal{S}}|:\n        \\hat{\\mathcal{S}} \\text{ is an } \\epsilon\\text{-covering of } \\tilde{\\mathcal{S}} \\} .\n    \\end{displaymath}"
+    },
+    "14": {
+        "id": 14,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of Spectral Complexity: Spectral complexity $\\text{SC}(T)$ of a NN $T$ is the multiplication of spectral norms of weight matrices of layers in a NN.\n    \\begin{displaymath}\n      \\text{SC}(T) = \\prod_{i=1}^{L}||\\boldsymbol{W}_{i}||_2\n    \\end{displaymath}\n    where $\\{\\boldsymbol{W}_{i}\\}_{i=1\\ldots L}$ denotes weight matrices of layers of the NN.",
+        "preliminary": ""
+    },
+    "15": {
+        "id": 15,
+        "source": "https://arxiv.org/abs/2011.07478",
+        "latex": "Definition of $(K, \\epsilon(\\cdot))$-Robust: An algorithm is $(K, \\epsilon(\\cdot))$ robust, for $K \\in \\mathbb{N}$ and $\\epsilon(\\cdot): \\mathcal{Z}^{m} \\mapsto \\mathbb{R}$, if $\\mathcal{Z}$ can be partitioned into $K$ disjoint sets, denoted by $\\mathcal{C} = \\{ C_k \\}_{k=1}^{K}$, such that the following holds for all $s_i = (\\boldsymbol{x}_i, y_i) \\in S_m, z=(\\boldsymbol{x}, y) \\in \\mathcal{Z}, C_k \\in \\mathcal{C}$:\n\\begin{align*}\n    \\forall s_i = (\\boldsymbol{x}_i, y_i) \\in C_k, \\forall z=(\\boldsymbol{x}, y) \\in C_k \\\\\n    \\implies |l(f(\\boldsymbol{x}_i), y_i) - l(f(\\boldsymbol{x}), y)| \\leq \\epsilon(S_m).\n\\end{align*}",
+        "preliminary": "Assume an instance space $\\mathcal{Z} = \\mathcal{X} \\times \\mathcal{Y}$, where $\\mathcal{X}$ is the space of input data, and $\\mathcal{Y}$ is the label space. $Z := (X, Y)$ are the random variables with an unknown distribution $\\mu$, from which we draw samples. We use $S_m = \\{ z_i = (\\boldsymbol{x}_i, y_i)\\}_{i=1}^{m}$ to denote the training set of size $m$ whose examples are drawn independently and identically distributed (i.i.d.) by sampling $Z$."
+    },
+    "16": {
+        "id": 16,
+        "source": "https://arxiv.org/abs/2010.12799",
+        "latex": "Definition of Dataset Neighboring: Let $\\mathcal{X} , \\mathcal{X} ' \\in \\mathbb{R}^{n \\times d}$ denote two datasets viewed as matrices with $d$-dimensional inputs $\\{x^{}_{(i)} \\}_{i=1}^n$ and $\\{x'_{(i)} \\}_{i=1}^n$ as rows respectively. We call  datasets $\\mathcal{X} $ and $\\mathcal{X} '$  neighboring  if there exists an index $i^* \\in 1, \\ldots, n$ such that $\\Vert x^{}_{(i^*)} - x'_{(i^*)} \\rVert \\le 1$, and $\\lVert x^{}_{(j)} - x'_{(j)} \\rVert = 0$ for any index $j \\in 1, \\ldots, n$, $j \\neq i^*$.",
+        "preliminary": ""
+    },
+    "17": {
+        "id": 17,
+        "source": "https://arxiv.org/abs/2010.12799",
+        "latex": "Definition of Differentially Private: A randomized algorithm $\\mathcal{M}$ is $(\\epsilon, \\delta)$-differentially private for $\\epsilon > 0$ and $\\delta \\in (0,1)$ if, for all  $O \\subset \\text{Range}(\\mathcal{M})$ (where $\\text{Range}(\\mathcal{M})$ is the range of the outputs of the randomized algorithm $\\mathcal{M}$) and for all neighboring datasets $\\mathcal{X} $ and $\\mathcal{X} '$, we have that\n    \\begin{equation*}\n    P(\\mathcal{M}(\\mathcal{X} ) \\in O) \\le \\exp (\\epsilon) \\cdot P(\\mathcal{M}(\\mathcal{X} ') \\in O) + \\delta.\n    \\end{equation*}",
+        "preliminary": "Definition of Dataset Neighboring: Let $\\mathcal{X} , \\mathcal{X} ' \\in \\mathbb{R}^{n \\times d}$ denote two datasets viewed as matrices with $d$-dimensional inputs $\\{x^{}_{(i)} \\}_{i=1}^n$ and $\\{x'_{(i)} \\}_{i=1}^n$ as rows respectively. We call  datasets $\\mathcal{X} $ and $\\mathcal{X} '$  neighboring  if there exists an index $i^* \\in 1, \\ldots, n$ such that $\\Vert x^{}_{(i^*)} - x'_{(i^*)} \\rVert \\le 1$, and $\\lVert x^{}_{(j)} - x'_{(j)} \\rVert = 0$ for any index $j \\in 1, \\ldots, n$, $j \\neq i^*$."
+    },
+    "18": {
+        "id": 18,
+        "source": "https://arxiv.org/abs/2010.12799",
+        "latex": "Definition of Diagonal Dominance: Let a dataset $\\mathcal{X}  \\subset \\mathbb{R}^{d}$ and a set $\\mathcal{X}_0 \\subseteq \\mathcal{X}$ be given. The covariance matrix $K_{\\mathcal{X}_0 \\mathcal{X}_0}$ is said to be diagonally dominant if for any $x \\in \\mathcal{X}_0$\n    \\begin{equation*}\n    k_{x x} \\geq \\big( \\sqrt{| \\mathcal{X}_0 |  -1} + 1 \\big) \\sum \\nolimits_{x' \\in \\mathcal{X}_0 \\setminus  x } k_{x x'}.\n    \\end{equation*}",
+        "preliminary": ""
+    },
+    "19": {
+        "id": 19,
+        "source": "https://arxiv.org/abs/2010.11082",
+        "latex": "Definition of $\\tau$-Sub-exponential: A random variable $X$ with mean $\\mu$ is called $\\tau$-sub-exponential if $\\mathbb{E}[\\exp(\\lambda (X-\\mu))]\\leq \\exp(\\frac{1}{2}\\tau^2\\lambda^2), \\forall |\\lambda|\\leq \\frac{1}{\\tau}$.",
+        "preliminary": ""
+    },
+    "20": {
+        "id": 20,
+        "source": "https://arxiv.org/abs/2010.11082",
+        "latex": "Definition of $L$-Lipschitz: A function $f$ is $L$-Lipschitz if  for all $w, w'\\in\\mathcal{W}$, $|f(w)-f(w')|\\leq L\\|w-w'\\|_2$, where $\\mathcal{W} \\subseteq \\mathbb{R}^d$ is a convex constraint set.",
+        "preliminary": ""
+    },
+    "21": {
+        "id": 21,
+        "source": "https://arxiv.org/abs/2010.11082",
+        "latex": "Definition of $\\alpha$-Strongly Convex: A function $f$ is $\\alpha$-strongly convex on $\\mathcal{W}$ if for all $w, w'\\in \\mathcal{W}$, $f(w')\\geq f(w)+\\langle \\nabla f(w), w'-w \\rangle+\\frac{\\alpha}{2}\\|w'-w\\|_2^2$, where $\\mathcal{W} \\subseteq \\mathbb{R}^d$ is a convex constraint set.",
+        "preliminary": ""
+    },
+    "22": {
+        "id": 22,
+        "source": "https://arxiv.org/abs/2010.11082",
+        "latex": "Definition of $\\beta$-Smooth: A function $f$ is $\\beta$-smooth on $\\mathcal{W}$ if for all $w, w'\\in \\mathcal{W}$, $f(w')\\leq f(w)+\\langle \\nabla f(w), w'-w \\rangle+\\frac{\\beta}{2}\\|w'-w\\|_2^2$, where $\\mathcal{W} \\subseteq \\mathbb{R}^d$ is a convex constraint set.",
+        "preliminary": ""
+    },
+    "23": {
+        "id": 23,
+        "source": "https://arxiv.org/abs/2008.06244",
+        "latex": "Definition of Heavy-Tailed Random Variable: A random variable $X$ is heavy-tailed if it does not admit a finite moment generating function, i.e., there is no $u_0>0$ such that,\n\\begin{equation*}\n    \\forall |u| \\leq u_0, \\ M_X(u) \\triangleq \\mathbb E[\\exp(uX)] < \\infty.\n\\end{equation*}",
+        "preliminary": ""
+    },
+    "24": {
+        "id": 24,
+        "source": "https://arxiv.org/abs/2008.06244",
+        "latex": "Definition of $(1+\\varepsilon)$-Heavy Tailed: A random variable $X$ is $(1+\\varepsilon)$-heavy tailed if $\\mathbb E[|X|^{t}] = \\infty$ for all $t >1+\\varepsilon$.",
+        "preliminary": ""
+    },
+    "25": {
+        "id": 25,
+        "source": "https://arxiv.org/abs/2008.06244",
+        "latex": "Definition of Trimmed Mean: Consider $n$ copies $X_1, ..., X_n$ of a heavy-tailed random variable $X$ such that $\\mathbb E[X] = \\mu, \\mathbb E[X^{1+\\varepsilon}]\\leq u$ for some $\\varepsilon\\in(0, 1]$. The online trimmed mean, for some $\\delta \\in (0, 1)$ is defined as\n\\begin{equation*}\n    \\hat{\\mu}_O = \\frac{1}{n}\\sum_{i=1}^n X_i \\bm{1}\\left\\{|X_i| \\leq \\left(\\frac{ui}{\\log \\delta^{-1}}\\right)^{\\frac{1}{1+\\varepsilon}}\\right\\}.\n\\end{equation*}",
+        "preliminary": "Definition of Heavy-Tailed Random Variable: A random variable $X$ is heavy-tailed if it does not admit a finite moment generating function, i.e., there is no $u_0>0$ such that,\n\\begin{equation*}\n    \\forall |u| \\leq u_0, \\ M_X(u) \\triangleq \\mathbb E[\\exp(uX)] < \\infty.\n\\end{equation*}"
+    },
+    "26": {
+        "id": 26,
+        "source": "https://arxiv.org/abs/2008.06244",
+        "latex": "Definition of Maximal Weighted Independent Set: An independent set of a graph $\\mathcal G = (V, E)$ is a set of vertices $V' \\subseteq V$ such that no two vertices in $V'$ are connected. A maximal independent set $V^*$ is the largest independent set in $\\mathcal G$, and the independence number $\\alpha(\\mathcal G) = |V^*|$. For a vertex-weighted graph, a maximal weighted independent set $V_w' \\subseteq V$ is the maximal independent set such that the sum of weights for all vertices in $V_w'$ is the largest possible.",
+        "preliminary": ""
+    },
+    "27": {
+        "id": 27,
+        "source": "https://arxiv.org/abs/1906.04817",
+        "latex": "Definition of Position-Aware Node Embedding: A node embedding $\\mathbf{z}_i = f_p(v_i), \\forall v_i \\in \\mathcal{V}$ is position-aware if there exists a function $g_p(\\cdot, \\cdot)$ such that $d_{sp}(v_i, v_j) = g_p(\\mathbf{z}_i, \\mathbf{z}_j)$, where $d_{sp}(\\cdot, \\cdot)$ is the shortest path distance in $G$.",
+        "preliminary": "A graph can be represented as $G = (\\mathcal{V},\\mathcal{E})$, where $\\mathcal{V} = \\{v_1, ..., v_n\\}$ is the node set and $\\mathcal{E}$ is the edge set. In many applications where nodes have attributes, we augment $G$ with the node feature set $\\mathcal{X} = \\{\\mathbf{x}_1, ..., \\mathbf{x}_n\\}$ where $\\mathbf{x}_i$ is the feature vector associated with node $v_i$.\n\nPredictions on graphs are made by first embedding nodes into a low-dimensional space which is then fed into a classifier, potentially in an end-to-end fashion. Specifically, a node embedding model can be written as a function $f: \\mathcal{V} \\rightarrow \\mathcal{Z}$ that maps nodes $\\mathcal{V}$ to $d$-dimensional vectors $\\mathcal{Z} = \\{\\mathbf{z}_1, ..., \\mathbf{z}_n\\}, \\mathbf{z}_i \\in \\mathbb{R}^d$."
+    },
+    "28": {
+        "id": 28,
+        "source": "https://arxiv.org/abs/1906.04817",
+        "latex": "Definition of Structure-Aware Node Embedding: A node embedding $\\mathbf{z}_i = f_{s_q}(v_i), \\forall v_i \\in \\mathcal{V}$ is structure-aware if it is a function of up to $q$-hop network neighbourhood of node $v_i$. Specifically, $\\mathbf{z}_i = g_s(N_1(v_i),...,N_q(v_i))$, where $N_k(v_i)$ is the set of the nodes $k$-hops away from node $v_i$, and $g_s$ can be any function.",
+        "preliminary": "A graph can be represented as $G = (\\mathcal{V},\\mathcal{E})$, where $\\mathcal{V} = \\{v_1, ..., v_n\\}$ is the node set and $\\mathcal{E}$ is the edge set. In many applications where nodes have attributes, we augment $G$ with the node feature set $\\mathcal{X} = \\{\\mathbf{x}_1, ..., \\mathbf{x}_n\\}$ where $\\mathbf{x}_i$ is the feature vector associated with node $v_i$.\n\nPredictions on graphs are made by first embedding nodes into a low-dimensional space which is then fed into a classifier, potentially in an end-to-end fashion. Specifically, a node embedding model can be written as a function $f: \\mathcal{V} \\rightarrow \\mathcal{Z}$ that maps nodes $\\mathcal{V}$ to $d$-dimensional vectors $\\mathcal{Z} = \\{\\mathbf{z}_1, ..., \\mathbf{z}_n\\}, \\mathbf{z}_i \\in \\mathbb{R}^d$."
+    },
+    "29": {
+        "id": 29,
+        "source": "https://arxiv.org/abs/1906.04817",
+        "latex": "Definition of $\\alpha$-Distortion: Given two metric spaces $(\\mathcal{V},d)$ and $(\\mathcal{Z},d')$ and a function $f: \\mathcal{V} \\rightarrow \\mathcal{Z}$, $f$ is said to have distortion $\\alpha$ if $\\forall u,v \\in \\mathcal{V}$, $\\frac{1}{\\alpha} d(u,v) \\leq d'(f(u),f(v)) \\leq d(u,v)$.",
+        "preliminary": "A graph can be represented as $G = (\\mathcal{V},\\mathcal{E})$, where $\\mathcal{V} = \\{v_1, ..., v_n\\}$ is the node set and $\\mathcal{E}$ is the edge set. In many applications where nodes have attributes, we augment $G$ with the node feature set $\\mathcal{X} = \\{\\mathbf{x}_1, ..., \\mathbf{x}_n\\}$ where $\\mathbf{x}_i$ is the feature vector associated with node $v_i$.\n\nPredictions on graphs are made by first embedding nodes into a low-dimensional space which is then fed into a classifier, potentially in an end-to-end fashion. Specifically, a node embedding model can be written as a function $f: \\mathcal{V} \\rightarrow \\mathcal{Z}$ that maps nodes $\\mathcal{V}$ to $d$-dimensional vectors $\\mathcal{Z} = \\{\\mathbf{z}_1, ..., \\mathbf{z}_n\\}, \\mathbf{z}_i \\in \\mathbb{R}^d$."
+    }
+}

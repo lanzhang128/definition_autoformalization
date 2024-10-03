@@ -1,0 +1,121 @@
+{
+    "0": {
+        "id": 0,
+        "source": "https://en.wikipedia.org/wiki/Algorithm_selection",
+        "latex": "Definition of Algorithm Selection: Given a portfolio \\(\\mathcal{P}\\) of algorithms \\(\\mathcal{A} \\in \\mathcal{P}\\), a set of instances \\(i \\in \\mathcal{I}\\) and a cost metric \\(m: \\mathcal{P} \\times \\mathcal{I} \\to \\mathbb{R}\\), the algorithm selection problem consists of finding a mapping \\(s: \\mathcal{I} \\to \\mathcal{P}\\) from instances \\(\\mathcal{I}\\) to algorithms \\(\\mathcal{P}\\) such that the cost \\(\\sum_{i \\in \\mathcal{I}} m(s(i),i)\\) across all instances is optimized.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_min",
+            "real"
+        ]
+    },
+    "3": {
+        "id": 3,
+        "source": "https://en.wikipedia.org/wiki/Equalized_odds",
+        "latex": "Definition of Equalized Odds: Equalized odds is a measure of fairness in machine learning. A classifier satisfies this definition if the subjects in the protected and unprotected groups have equal true positive rate and equal false positive rate, satisfying the formula: \\[P(R = + | Y = y, A = a) = P(R = + | Y = y, A = b) \\quad y \\in \\{+,-\\} \\quad \\forall a,b \\in A\\]",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "events",
+            "cond_prob"
+        ]
+    },
+    "8": {
+        "id": 8,
+        "source": "https://en.wikipedia.org/wiki/Rademacher_complexity",
+        "latex": "Definition of Rademacher Complexity: Given a set \\(A\\subseteq \\mathbb{R}^m\\), the Rademacher complexity of A is defined as follows: \\[\\operatorname{Rad}(A):=\\frac{1}{m}\\mathbb{E}_\\sigma\\left[\\sup_{a \\in A}\\sum_{i=1}^m \\sigma_i a_i\\right]\\] where \\(\\sigma_1, \\sigma_2, \\dots, \\sigma_m\\) are independent random variables drawn from the Rademacher distribution (i.e. \\(\\Pr(\\sigma_i = +1) = \\Pr(\\sigma_i = -1) = 1/2\\) for \\(i=1,2,\\dots,m\\)), and \\(a=(a_1,\\dots,a_m)\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "expectation",
+            "Sup",
+            "indep_vars",
+            "prob",
+            "events"
+        ]
+    },
+    "11": {
+        "id": 11,
+        "source": "https://en.wikipedia.org/wiki/Stability_(learning_theory)",
+        "latex": "Definition of Point-wise Hypothesis Stability: An algorithm \\(L\\) has point-wise hypothesis stability \\(\\beta\\) with respect to the loss function \\(V\\) if the following holds: \\(\\forall i\\in\\ \\{1,...,m\\}, \\mathbb{E}_{S} [|V(f_S,z_i)-V(f_{S^{|i}},z_i)|]\\leq\\beta.\\)",
+        "preliminary": "A machine learning algorithm, also known as a learning map \\(L\\), maps a training data set, which is a set of labeled examples \\((x,y)\\), onto a function \\(f\\) from \\(X\\) to \\(Y\\), where \\(X\\) and \\(Y\\) are in the same space of the training examples. The functions \\(f\\) are selected from a hypothesis space of functions called \\(H\\). The training set from which an algorithm learns is defined as \\(S = \\{z_1 = (x_1,\\ y_1)\\ ,..,\\ z_m = (x_m,\\ y_m)\\}\\) and is of size \\(m\\) in \\(Z = X \\times Y\\) drawn i.i.d. from an unknown distribution \\(D\\). Thus, the learning map \\(L\\) is defined as a mapping from \\(Z_m\\) into \\(H\\), mapping a training set \\(S\\) onto a function \\(f_S\\) from \\(X\\) to \\(Y\\). Here, we consider only deterministic algorithms where \\(L\\) is symmetric with respect to \\(S\\), i.e. it does not depend on the order of the elements in the training set. Furthermore, we assume that all functions are measurable and all sets are countable.\n\nThe loss \\(V\\) of a hypothesis \\(f\\) with respect to an example \\(z = (x,y)\\) is then defined as \\(V(f,z) = V(f(x),y)\\). The empirical error of \\(f\\) is \\(I_S[f] = \\frac{1}{n}\\sum V(f,z_i)\\). The true error of \\(f\\) is \\(I[f] = \\mathbb{E}_z V(f,z)\\) Given a training set \\(S\\) of size \\(m\\), we will build, for all \\(i = 1,...,m\\), modified training sets by removing the \\(i\\)-th element \\(S^{|i} = \\{z_1 ,...,\\ z_{i-1},\\ z_{i+1},...,\\ z_m\\}\\)",
+        "possible_related_formal_defs": [
+            "real",
+            "expectation",
+            "indep_vars",
+            "measurable_on",
+            "borel_measurable"
+        ]
+    },
+    "18": {
+        "id": 18,
+        "source": "https://en.wikipedia.org/wiki/Perceptron",
+        "latex": "Definition of Threshold Function: A function that maps its input \\(\\mathbf{x}\\) (a real-valued vector) to an output value \\(f(\\mathbf{x})\\) (a single binary value): \\[f(\\mathbf{x}) = h(\\mathbf{w} \\cdot \\mathbf{x} + b)\\] where \\(h\\) is the Heaviside step-function, \\(\\mathbf{w}\\) is a vector of real-valued weights, \\(\\mathbf{w} \\cdot \\mathbf{x}\\) is the dot product \\(\\sum_{i=1}^m w_i x_i\\), where \\(m\\) is the number of inputs to the perceptron, and \\(b\\) is the bias.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "real_inner"
+        ]
+    },
+    "27": {
+        "id": 27,
+        "source": "https://en.wikipedia.org/wiki/Calinski%E2%80%93Harabasz_index",
+        "latex": "Definition of Between-Cluster Sum of Squares: Given a data set of \\(n\\) points: \\(\\{\\mathbf{x}_1,...,\\mathbf{x}_n\\}\\), and the assignment of these points to \\(k\\) clusters: \\(\\{C_1,...,C_k\\}\\). BCSS (Between-Cluster Sum of Squares) is the weighted sum of squared Euclidean distances between each cluster centroid (mean) and the overall data centroid (mean): \\[BCSS = \\sum_{i=1}^{k} n_i ||\\mathbf{c}_i - \\mathbf{c}||^2\\] where \\(n_i\\) is the number of points in cluster \\(C_i\\), \\(\\mathbf{c}_i\\) is the centroid of \\(C_i\\), and \\(\\mathbf{c}\\) is the overall centroid of the data.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "euclidean_space"
+        ]
+    },
+    "30": {
+        "id": 30,
+        "source": "https://en.wikipedia.org/wiki/Growth_function",
+        "latex": "Definition of Set-Family Growth Function: Let \\(H\\) be a set family (a set of sets) and \\(C\\) a set. Their intersection is defined as the following set-family: \\(H\\cap C := \\{h\\cap C\\mid h\\in H\\}\\). The intersection-size (also called the index) of \\(H\\) with respect to \\(C\\) is \\(|H\\cap C|\\). The growth function measures the size of \\(H\\cap C\\) as a function of \\(|C|\\). Formally: \\(\\operatorname{Growth}(H,m) := \\max_{C: |C|=m} |H\\cap C|\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_max",
+            "arg_max"
+        ]
+    },
+    "35": {
+        "id": 35,
+        "source": "https://en.wikipedia.org/wiki/Autoencoder",
+        "latex": "Definition of Autoencoder: An autoencoder is defined by the following components:\n\\begin{quote}\nTwo sets: the space of decoded messages \\(\\mathcal X\\); the space of\nencoded messages \\(\\mathcal Z\\). Typically \\(\\mathcal X\\) and\n\\(\\mathcal Z\\) are Euclidean spaces, that is,\n\\(\\mathcal X = \\mathbb{R}^m, \\mathcal Z = \\mathbb{R}^n\\) with \\(m > n.\\)\n\\end{quote}\n\\begin{quote}\nTwo parametrized families of functions: the encoder family\n\\(E_\\phi:\\mathcal{X} \\rightarrow \\mathcal{Z}\\), parametrized by\n\\(\\phi\\); the decoder family\n\\(D_\\theta:\\mathcal{Z} \\rightarrow \\mathcal{X}\\), parametrized by\n\\(\\theta\\).\n\\end{quote}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "euclidean_space",
+            "real",
+            "real_vector"
+        ]
+    },
+    "40": {
+        "id": 40,
+        "source": "https://en.wikipedia.org/wiki/Cross-entropy",
+        "latex": "Definition of Cross-Entropy: The cross-entropy of the distribution \\(q\\) relative to a distribution \\(p\\) over a given set is defined as follows: \\(H(p, q) = -\\operatorname{E}_p[\\log q]\\), where \\(E_p[\\cdot]\\) is the expected value operator with respect to the distribution \\(p\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real_distribution",
+            "expectation",
+            "prob",
+            "log",
+            "ln_real",
+            "entropy_density",
+            "entropy"
+        ]
+    },
+    "48": {
+        "id": 48,
+        "source": "https://en.wikipedia.org/wiki/Hidden_Markov_model",
+        "latex": "Definition of Discrete Hidden Markov Model: Let \\(X_n\\) and \\(Y_n\\) be discrete-time stochastic processes and \\(n\\geq 1\\). The pair \\((X_n,Y_n)\\) is a hidden Markov model if\n\\begin{itemize}\n    \\item \\(X_n\\) is a Markov process whose behavior is not directly observable (\"hidden\");\n    \\item \\(\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_1=x_1,\\ldots,X_n=x_n\\bigr)=\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_n=x_n\\bigr),\\) for every \\(n\\geq 1,\\) \\(x_1,\\ldots, x_n,\\) and every Borel set \\(A\\).\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "cond_prob",
+            "events",
+            "random_variable",
+            "borel_measurable"
+        ]
+    }
+}

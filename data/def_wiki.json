@@ -1,0 +1,664 @@
+{
+    "0": {
+        "id": 0,
+        "source": "https://en.wikipedia.org/wiki/Algorithm_selection",
+        "latex": "Definition of Algorithm Selection: Given a portfolio \\(\\mathcal{P}\\) of algorithms \\(\\mathcal{A} \\in \\mathcal{P}\\), a set of instances \\(i \\in \\mathcal{I}\\) and a cost metric \\(m: \\mathcal{P} \\times \\mathcal{I} \\to \\mathbb{R}\\), the algorithm selection problem consists of finding a mapping \\(s: \\mathcal{I} \\to \\mathcal{P}\\) from instances \\(\\mathcal{I}\\) to algorithms \\(\\mathcal{P}\\) such that the cost \\(\\sum_{i \\in \\mathcal{I}} m(s(i),i)\\) across all instances is optimized.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_min",
+            "real"
+        ]
+    },
+    "1": {
+        "id": 1,
+        "source": "https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model",
+        "latex": "Definition of Bradley--Terry model: Given a pair of items \\(i\\) and \\(j\\) drawn from some population, the Bradley--Terry model estimates the probability that the pairwise comparison turns out true, as \\[\\Pr(i > j) = \\frac{p_i}{p_i + p_j}\\] where \\(p_i\\) is a positive real-valued score assigned to individual \\(i\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "events",
+            "random_variable",
+            "indep_vars",
+            "real"
+        ]
+    },
+    "2": {
+        "id": 2,
+        "source": "https://en.wikipedia.org/wiki/Category_utility",
+        "latex": "Definition of Category Utility: The probability-theoretic definition of category utility is given as follows: \\[CU(C,F) = \\tfrac{1}{p} \\sum_{c_j \\in C} p(c_j) \\left [\\sum_{f_i \\in F} \\sum_{k=1}^m p(f_{ik}|c_j)^2 - \\sum_{f_i \\in F} \\sum_{k=1}^m p(f_{ik})^2\\right ]\\] where \\(F = \\{f_i\\}, \\ i=1 \\ldots n\\) is a size-\\(n\\) set of \\(m\\)-ary features, and \\(C = \\{c_j\\}, \\ j=1 \\ldots p\\) is a set of \\(p\\) categories. The term \\(p(f_{ik})\\) designates the marginal probability that feature \\(f_i\\) takes on value \\(k\\), and the term \\(p(f_{ik}|c_j)\\) designates the category-conditional probability that feature \\(f_i\\) takes on value \\(k\\) given that the object in question belongs to category \\(c_j\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "events",
+            "cond_prob",
+            "vector_space"
+        ]
+    },
+    "3": {
+        "id": 3,
+        "source": "https://en.wikipedia.org/wiki/Equalized_odds",
+        "latex": "Definition of Equalized Odds: Equalized odds is a measure of fairness in machine learning. A classifier satisfies this definition if the subjects in the protected and unprotected groups have equal true positive rate and equal false positive rate, satisfying the formula: \\[P(R = + | Y = y, A = a) = P(R = + | Y = y, A = b) \\quad y \\in \\{+,-\\} \\quad \\forall a,b \\in A\\]",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "events",
+            "cond_prob"
+        ]
+    },
+    "4": {
+        "id": 4,
+        "source": "https://en.wikipedia.org/wiki/Isotropic_position",
+        "latex": "Definition of Isotropic Position: A probability distribution over vectors is said to be in isotropic position if its covariance matrix is equal to the identity matrix. Formally, let \\(D\\) be a distribution over vectors in the vector space \\(\\mathbb{R}^n\\). Then \\(D\\) is in isotropic position if, for vector \\(v\\) sampled from the distribution, \\(\\mathbb{E}\\, vv^\\mathsf{T} = \\mathrm{Id}.\\)",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "expectation",
+            "real_vector",
+            "one_matrix",
+            "matrix",
+            "variance"
+        ]
+    },
+    "5": {
+        "id": 5,
+        "source": "https://en.wikipedia.org/wiki/Kernel_density_estimation",
+        "latex": "Definition of Kernel Density Estimation: Let \\((x_1,x_2,\\dots,x_n)\\) be independent and identically distributed samples drawn from some univariate distribution with an unknown density \\(f\\) at any given point \\(x\\). We are interested in estimating the shape of this function \\(f\\). Its kernel density estimator is \\[\\widehat{f}_h(x) = \\frac{1}{n}\\sum_{i=1}^n K_h (x - x_i) = \\frac{1}{nh} \\sum_{i=1}^n K\\Big(\\frac{x-x_i}{h}\\Big),\\] where \\(K\\) is the kernel --- a non-negative function --- and \\(h>0\\) is a smoothing parameter called the bandwidth or simply width. A kernel with subscript \\(h\\) is called the scaled kernel and defined as \\(K_h(x)=\\frac{1}{h}K(\\frac{x}{h}\\)).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "indep_vars"
+        ]
+    },
+    "6": {
+        "id": 6,
+        "source": "https://en.wikipedia.org/wiki/Linear_predictor_function",
+        "latex": "Definition of Linear Predictor Function: The basic form of a linear predictor function \\(f(i)\\) for data point \\(i\\) (consisting of \\(p\\) explanatory variables, for \\(i=1,\\dots,n\\), is \\[f(i) = \\beta_0 + \\beta_1 x_{i1} + \\cdots + \\beta_p x_{ip},\\] where \\(x_{ik}\\), for \\(k=1,\\dots,p\\) is the value of the \\(k\\)-th explanatory variable for data point \\(i\\), and \\(\\beta_0, \\ldots, \\beta_p\\) are the coefficients indicating the relative effect of a particular explanatory variable on the outcome.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "vector_space",
+            "linear"
+        ]
+    },
+    "7": {
+        "id": 7,
+        "source": "https://en.wikipedia.org/wiki/Linear_separability",
+        "latex": "Definition of Linearly Separable: Let \\(X_{0}\\) and \\(X_{1}\\) be two sets of points in a \\(n\\)-dimensional Euclidean space. Then \\(X_{0}\\) and \\(X_{1}\\) are linearly separable if there exist \\(n+1\\) real numbers \\(w_{1}, w_{2},..,w_{n}, k\\), such that every point \\(x \\in X_{0}\\) satisfies \\(\\sum^{n}_{i=1} w_{i}x_{i} > k\\) and every point \\(x \\in X_{1}\\) satisfies \\(\\sum^{n}_{i=1} w_{i}x_{i} < k\\), where \\(x_{i}\\) is the \\(i\\)-th component of \\(x\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "linear",
+            "euclidean_space"
+        ]
+    },
+    "8": {
+        "id": 8,
+        "source": "https://en.wikipedia.org/wiki/Rademacher_complexity",
+        "latex": "Definition of Rademacher Complexity: Given a set \\(A\\subseteq \\mathbb{R}^m\\), the Rademacher complexity of A is defined as follows: \\[\\operatorname{Rad}(A):=\\frac{1}{m}\\mathbb{E}_\\sigma\\left[\\sup_{a \\in A}\\sum_{i=1}^m \\sigma_i a_i\\right]\\] where \\(\\sigma_1, \\sigma_2, \\dots, \\sigma_m\\) are independent random variables drawn from the Rademacher distribution (i.e. \\(\\Pr(\\sigma_i = +1) = \\Pr(\\sigma_i = -1) = 1/2\\) for \\(i=1,2,\\dots,m\\)), and \\(a=(a_1,\\dots,a_m)\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "expectation",
+            "Sup",
+            "indep_vars",
+            "prob",
+            "events"
+        ]
+    },
+    "9": {
+        "id": 9,
+        "source": "https://en.wikipedia.org/wiki/Sample_complexity",
+        "latex": "Definition of Sample Complexity: Let \\(X\\) be a space which we call the input space, and \\(Y\\) be a space which we call the output space, and let \\(Z\\) denote the product \\(X\\times Y\\). Fix a hypothesis space \\(\\mathcal H\\) of functions \\(h\\colon X\\to Y\\). A learning algorithm over \\(\\mathcal H\\) is a computable map from \\(Z^*\\) to \\(\\mathcal H\\). Fix a loss function \\(\\mathcal{L}\\colon Y\\times Y\\to R_{\\geq 0}\\), where \\(h(x) = y'\\). For a given distribution \\(\\rho\\) on \\(X\\times Y\\), the expected risk of a hypothesis (a function) \\(h\\in\\mathcal H\\) is \\[\\mathcal E(h) :=\\mathbb E_\\rho[\\mathcal{L}(h(x),y)]=\\int_{X\\times Y} \\mathcal{L}(h(x),y)\\,d\\rho(x,y)\\] In our setting, we have \\(h=\\mathcal{A}(S_n)\\), where \\(\\mathcal{A}\\) is a learning algorithm and \\(S_n = ((x_1,y_1),\\ldots,(x_n,y_n))\\sim \\rho^n\\) is a sequence of vectors which are all drawn independently from \\(\\rho\\). Define the optimal risk \\(\\mathcal E^*_\\mathcal{H} = \\underset{h \\in \\mathcal H}{\\inf}\\mathcal E(h).\\) Set \\(h_n=\\mathcal{A}(S_n)\\), for each sample size \\(n\\). \\(h_n\\) is a random variable and depends on the random variable \\(S_n\\), which is drawn from the distribution \\(\\rho^n\\). The algorithm \\(\\mathcal{A}\\) is called consistent if \\(\\mathcal E(h_n)\\) probabilistically converges to \\(\\mathcal E_\\mathcal H^*\\). In other words, for all \\(\\epsilon, \\delta>0\\), there exists a positive integer \\(N\\), such that, for all sample sizes \\(n \\geq N\\), we have \\[\\Pr_{\\rho^n}[\\mathcal E(h_n) - \\mathcal E^*_\\mathcal{H}\\geq\\varepsilon]<\\delta.\\] The sample complexity of \\(\\mathcal{A}\\) is then the minimum \\(N\\) for which this holds, as a function of \\(\\rho, \\epsilon\\), and \\(\\delta\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "expectation",
+            "prob",
+            "vector_space",
+            "indep_vars",
+            "Inf"
+        ]
+    },
+    "10": {
+        "id": 10,
+        "source": "https://en.wikipedia.org/wiki/Stability_(learning_theory)",
+        "latex": "Definition of Hypothesis Stability: An algorithm \\(L\\) has hypothesis stability \\(\\beta\\) with respect to the loss function \\(V\\) if the following holds: \\(\\forall i\\in \\{1,...,m\\}, \\mathbb{E}_{S,z} [|V(f_S,z)-V(f_{S^{|i}},z)|]\\leq\\beta.\\)",
+        "preliminary": "A machine learning algorithm, also known as a learning map \\(L\\), maps a training data set, which is a set of labeled examples \\((x,y)\\), onto a function \\(f\\) from \\(X\\) to \\(Y\\), where \\(X\\) and \\(Y\\) are in the same space of the training examples. The functions \\(f\\) are selected from a hypothesis space of functions called \\(H\\). The training set from which an algorithm learns is defined as \\(S = \\{z_1 = (x_1,\\ y_1)\\ ,..,\\ z_m = (x_m,\\ y_m)\\}\\) and is of size \\(m\\) in \\(Z = X \\times Y\\) drawn i.i.d. from an unknown distribution \\(D\\). Thus, the learning map \\(L\\) is defined as a mapping from \\(Z_m\\) into \\(H\\), mapping a training set \\(S\\) onto a function \\(f_S\\) from \\(X\\) to \\(Y\\). Here, we consider only deterministic algorithms where \\(L\\) is symmetric with respect to \\(S\\), i.e. it does not depend on the order of the elements in the training set. Furthermore, we assume that all functions are measurable and all sets are countable.\n\nThe loss \\(V\\) of a hypothesis \\(f\\) with respect to an example \\(z = (x,y)\\) is then defined as \\(V(f,z) = V(f(x),y)\\). The empirical error of \\(f\\) is \\(I_S[f] = \\frac{1}{n}\\sum V(f,z_i)\\). The true error of \\(f\\) is \\(I[f] = \\mathbb{E}_z V(f,z)\\) Given a training set \\(S\\) of size \\(m\\), we will build, for all \\(i = 1,...,m\\), modified training sets by removing the \\(i\\)-th element \\(S^{|i} = \\{z_1 ,...,\\ z_{i-1},\\ z_{i+1},...,\\ z_m\\}\\)",
+        "possible_related_formal_defs": [
+            "real",
+            "expectation",
+            "indep_vars",
+            "measurable_on",
+            "borel_measurable"
+        ]
+    },
+    "11": {
+        "id": 11,
+        "source": "https://en.wikipedia.org/wiki/Stability_(learning_theory)",
+        "latex": "Definition of Point-wise Hypothesis Stability: An algorithm \\(L\\) has point-wise hypothesis stability \\(\\beta\\) with respect to the loss function \\(V\\) if the following holds: \\(\\forall i\\in\\ \\{1,...,m\\}, \\mathbb{E}_{S} [|V(f_S,z_i)-V(f_{S^{|i}},z_i)|]\\leq\\beta.\\)",
+        "preliminary": "A machine learning algorithm, also known as a learning map \\(L\\), maps a training data set, which is a set of labeled examples \\((x,y)\\), onto a function \\(f\\) from \\(X\\) to \\(Y\\), where \\(X\\) and \\(Y\\) are in the same space of the training examples. The functions \\(f\\) are selected from a hypothesis space of functions called \\(H\\). The training set from which an algorithm learns is defined as \\(S = \\{z_1 = (x_1,\\ y_1)\\ ,..,\\ z_m = (x_m,\\ y_m)\\}\\) and is of size \\(m\\) in \\(Z = X \\times Y\\) drawn i.i.d. from an unknown distribution \\(D\\). Thus, the learning map \\(L\\) is defined as a mapping from \\(Z_m\\) into \\(H\\), mapping a training set \\(S\\) onto a function \\(f_S\\) from \\(X\\) to \\(Y\\). Here, we consider only deterministic algorithms where \\(L\\) is symmetric with respect to \\(S\\), i.e. it does not depend on the order of the elements in the training set. Furthermore, we assume that all functions are measurable and all sets are countable.\n\nThe loss \\(V\\) of a hypothesis \\(f\\) with respect to an example \\(z = (x,y)\\) is then defined as \\(V(f,z) = V(f(x),y)\\). The empirical error of \\(f\\) is \\(I_S[f] = \\frac{1}{n}\\sum V(f,z_i)\\). The true error of \\(f\\) is \\(I[f] = \\mathbb{E}_z V(f,z)\\) Given a training set \\(S\\) of size \\(m\\), we will build, for all \\(i = 1,...,m\\), modified training sets by removing the \\(i\\)-th element \\(S^{|i} = \\{z_1 ,...,\\ z_{i-1},\\ z_{i+1},...,\\ z_m\\}\\)",
+        "possible_related_formal_defs": [
+            "real",
+            "expectation",
+            "indep_vars",
+            "measurable_on",
+            "borel_measurable"
+        ]
+    },
+    "12": {
+        "id": 12,
+        "source": "https://en.wikipedia.org/wiki/Stability_(learning_theory)",
+        "latex": "Definition of Error Stability: An algorithm \\(L\\) has error stability \\(\\beta\\) with respect to the loss function \\(V\\) if the following holds: \\(\\forall S\\in Z^m, \\forall i\\in\\{1,...,m\\}, |\\mathbb{E}_z[V(f_S,z)]-\\mathbb{E}_z[V(f_{S^{|i}},z)]|\\leq\\beta\\)",
+        "preliminary": "A machine learning algorithm, also known as a learning map \\(L\\), maps a training data set, which is a set of labeled examples \\((x,y)\\), onto a function \\(f\\) from \\(X\\) to \\(Y\\), where \\(X\\) and \\(Y\\) are in the same space of the training examples. The functions \\(f\\) are selected from a hypothesis space of functions called \\(H\\). The training set from which an algorithm learns is defined as \\(S = \\{z_1 = (x_1,\\ y_1)\\ ,..,\\ z_m = (x_m,\\ y_m)\\}\\) and is of size \\(m\\) in \\(Z = X \\times Y\\) drawn i.i.d. from an unknown distribution \\(D\\). Thus, the learning map \\(L\\) is defined as a mapping from \\(Z_m\\) into \\(H\\), mapping a training set \\(S\\) onto a function \\(f_S\\) from \\(X\\) to \\(Y\\). Here, we consider only deterministic algorithms where \\(L\\) is symmetric with respect to \\(S\\), i.e. it does not depend on the order of the elements in the training set. Furthermore, we assume that all functions are measurable and all sets are countable.\n\nThe loss \\(V\\) of a hypothesis \\(f\\) with respect to an example \\(z = (x,y)\\) is then defined as \\(V(f,z) = V(f(x),y)\\). The empirical error of \\(f\\) is \\(I_S[f] = \\frac{1}{n}\\sum V(f,z_i)\\). The true error of \\(f\\) is \\(I[f] = \\mathbb{E}_z V(f,z)\\) Given a training set \\(S\\) of size \\(m\\), we will build, for all \\(i = 1,...,m\\), modified training sets by removing the \\(i\\)-th element \\(S^{|i} = \\{z_1 ,...,\\ z_{i-1},\\ z_{i+1},...,\\ z_m\\}\\)",
+        "possible_related_formal_defs": [
+            "real",
+            "expectation",
+            "indep_vars",
+            "measurable_on",
+            "borel_measurable"
+        ]
+    },
+    "13": {
+        "id": 13,
+        "source": "https://en.wikipedia.org/wiki/Stability_(learning_theory)",
+        "latex": "Definition of Uniform Stability: An algorithm \\(L\\) has uniform stability \\(\\beta\\) with respect to the loss function \\(V\\) if the following holds: \\(\\forall S\\in Z^m, \\forall i\\in\\{1,...,m\\}, \\sup_{z\\in Z}|V(f_S,z)-V(f_{S^{|i}},z)|\\leq\\beta\\)",
+        "preliminary": "A machine learning algorithm, also known as a learning map \\(L\\), maps a training data set, which is a set of labeled examples \\((x,y)\\), onto a function \\(f\\) from \\(X\\) to \\(Y\\), where \\(X\\) and \\(Y\\) are in the same space of the training examples. The functions \\(f\\) are selected from a hypothesis space of functions called \\(H\\). The training set from which an algorithm learns is defined as \\(S = \\{z_1 = (x_1,\\ y_1)\\ ,..,\\ z_m = (x_m,\\ y_m)\\}\\) and is of size \\(m\\) in \\(Z = X \\times Y\\) drawn i.i.d. from an unknown distribution \\(D\\). Thus, the learning map \\(L\\) is defined as a mapping from \\(Z_m\\) into \\(H\\), mapping a training set \\(S\\) onto a function \\(f_S\\) from \\(X\\) to \\(Y\\). Here, we consider only deterministic algorithms where \\(L\\) is symmetric with respect to \\(S\\), i.e. it does not depend on the order of the elements in the training set. Furthermore, we assume that all functions are measurable and all sets are countable.\n\nThe loss \\(V\\) of a hypothesis \\(f\\) with respect to an example \\(z = (x,y)\\) is then defined as \\(V(f,z) = V(f(x),y)\\). The empirical error of \\(f\\) is \\(I_S[f] = \\frac{1}{n}\\sum V(f,z_i)\\). The true error of \\(f\\) is \\(I[f] = \\mathbb{E}_z V(f,z)\\) Given a training set \\(S\\) of size \\(m\\), we will build, for all \\(i = 1,...,m\\), modified training sets by removing the \\(i\\)-th element \\(S^{|i} = \\{z_1 ,...,\\ z_{i-1},\\ z_{i+1},...,\\ z_m\\}\\)",
+        "possible_related_formal_defs": [
+            "real",
+            "indep_vars",
+            "measurable_on",
+            "borel_measurable",
+            "Sup"
+        ]
+    },
+    "14": {
+        "id": 14,
+        "source": "https://en.wikipedia.org/wiki/Tensor_(machine_learning)",
+        "latex": "Definition of Tensor: Let \\(\\mathbb F\\) be a field. A tensor \\({\\mathcal A}\\) is an \\(I_1 \\times I_2 \\times \\cdots \\times I_C\\) array over \\(\\mathbb F\\): \\({\\mathcal A} \\in {\\mathbb F}^{I_1 \\times I_2 \\times \\ldots \\times I_C}.\\) Here, \\(C\\) and \\(I_1, I_2, \\ldots, I_C\\) are positive integers, and \\(C\\) is the number of dimensions, number of ways, or mode of the tensor.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "field"
+        ]
+    },
+    "15": {
+        "id": 15,
+        "source": "https://en.wikipedia.org/wiki/Mathematics_of_artificial_neural_networks",
+        "latex": "Definition of Neuron: A neuron with label \\(j\\) receiving an input \\(p_j(t)\\) from predecessor neurons consists of the following components:\n\\begin{itemize}\n  \\item an \\emph{activation} \\(a_j(t)\\), the neuron's state,\n  depending on a discrete time parameter,\n  \\item an optional \\emph{threshold} \\(\\theta_j\\), which stays fixed unless changed by learning,\n  \\item an \\emph{activation function} \\(f\\) that computes the new activation at a given time \\(t+1\\) from \\(a_j(t)\\), \\(\\theta_j\\) and the net input \\(p_j(t)\\) giving rise to the relation \\(a_j(t+1) = f(a_j(t), p_j(t), \\theta_j),\\)\n  \\item and an \\emph{output function} \\(f_\\text{out}\\) computing the output from the activation \\(o_j(t) = f_\\text{out}(a_j(t)).\\)\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real"
+        ]
+    },
+    "16": {
+        "id": 16,
+        "source": "https://en.wikipedia.org/wiki/Graph_neural_network",
+        "latex": "Definition of Message Passing Neural Network Layer: Let \\(G = (V,E)\\) be a graph, where \\(V\\) is the node set and \\(E\\) is the edge set. Let \\(N_u\\) be the neighbourhood of some node \\(u \\in V\\). Additionally, let \\(\\mathbf{x}_u\\) be the features of node \\(u \\in V\\), and \\(\\mathbf{e}_{uv}\\) be the features of edge \\((u, v) \\in E\\). An MPNN layer can be expressed as follows: \\[\\mathbf{h}_u = \\phi \\left( \\mathbf{x}_u, \\bigoplus_{v \\in N_u} \\psi(\\mathbf{x}_u, \\mathbf{x}_v, \\mathbf{e}_{uv}) \\right)\\] where \\(\\phi\\) and \\(\\psi\\) are differentiable functions, and \\(\\bigoplus\\) is a permutation invariant aggregation operator that can accept an arbitrary number of inputs (e.g., element-wise sum, mean, or max).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "vector_space"
+        ]
+    },
+    "17": {
+        "id": 17,
+        "source": "https://en.wikipedia.org/wiki/Hyper_basis_function_network",
+        "latex": "Definition of Hyper Basis Function Network: The typical HyperBF network structure consists of a real input vector \\(x\\in \\mathbb{R}^n\\), a hidden layer of activation functions and a linear output layer. The output of the network is a scalar function of the input vector, \\(\\phi: \\mathbb{R}^n\\to\\mathbb{R}\\), is given by \\(\\phi(x)=\\sum_{j=1}^{N}a_j\\rho_j(||x-\\mu_j||)\\) where \\(N\\) is a number of neurons in the hidden layer, \\(\\mu_j\\) and \\(a_j\\) are the center and weight of neuron \\(j\\). The activation function \\(\\rho_j(||x-\\mu_j||)\\) at the HyperBF network takes the following form \\(\\rho_j(||x-\\mu_j||)=e^{(x-\\mu_j)^T R_j(x-\\mu_j)}\\) where \\(R_j\\) is a positive definite \\(n\\times n\\) matrix.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "real_normed_vector",
+            "matrix",
+            "transpose_matrix",
+            "exp"
+        ]
+    },
+    "18": {
+        "id": 18,
+        "source": "https://en.wikipedia.org/wiki/Perceptron",
+        "latex": "Definition of Threshold Function: A function that maps its input \\(\\mathbf{x}\\) (a real-valued vector) to an output value \\(f(\\mathbf{x})\\) (a single binary value): \\[f(\\mathbf{x}) = h(\\mathbf{w} \\cdot \\mathbf{x} + b)\\] where \\(h\\) is the Heaviside step-function, \\(\\mathbf{w}\\) is a vector of real-valued weights, \\(\\mathbf{w} \\cdot \\mathbf{x}\\) is the dot product \\(\\sum_{i=1}^m w_i x_i\\), where \\(m\\) is the number of inputs to the perceptron, and \\(b\\) is the bias.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "real_inner"
+        ]
+    },
+    "19": {
+        "id": 19,
+        "source": "https://en.wikipedia.org/wiki/Radial_basis_function",
+        "latex": "Definition of Radial Kernel: A radial function is a function \\(\\varphi:[0,\\infty) \\to \\mathbb{R}\\). When paired with a norm on a vector space \\(\\|\\cdot\\|:V \\to [0,\\infty)\\), a function of the form \\(\\varphi_\\mathbf{c} = \\varphi(\\|\\mathbf{x}-\\mathbf{c}\\|)\\) is said to be a radial kernel centered at \\(\\mathbf{c} \\in V\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "real_normed_vector"
+        ]
+    },
+    "20": {
+        "id": 20,
+        "source": "https://en.wikipedia.org/wiki/Softmax_function",
+        "latex": "Definition of Softmax Function: Formally, the standard (unit) softmax function \\(\\sigma\\colon \\mathbb{R}^K \\to (0, 1)^K\\), where \\(K \\ge 1\\), takes a vector \\(\\mathbf{z} = (z_1, \\dotsc, z_K) \\in \\mathbb{R}^K\\) and computes each component of vector \\(\\sigma(\\mathbf{z}) \\in (0, 1)^K\\) with \\(\\sigma(\\mathbf{z})_i = \\frac{e^{z_i}}{\\sum_{j=1}^K e^{z_j}}\\,.\\)",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "exp"
+        ]
+    },
+    "21": {
+        "id": 21,
+        "source": "https://en.wikipedia.org/wiki/Bayesian_network",
+        "latex": "Definition of Bayesian Network: Let \\(G=(V,E)\\) be a directed acyclic graph (DAG) and let \\(X=(X_v), v\\in V\\) be a set of random variables indexed by \\(V\\). \\(X\\) is a Bayesian network with respect to \\(G\\) if its joint probability density function (with respect to a product measure) can be written as a product of the individual density functions, conditional on their parent variables: \\[p(x)=\\prod_{v \\in V} p \\left(x_v \\,\\big|\\,  x_{\\operatorname{pa}(v)} \\right)\\] where \\(\\operatorname{pa}(v)\\) is the set of parents of \\(v\\) (i.e. those vertices pointing directly to \\(v\\) via a single edge).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "pmf_of_list",
+            "prob",
+            "cond_prob",
+            "random_variable"
+        ]
+    },
+    "22": {
+        "id": 22,
+        "source": "https://en.wikipedia.org/wiki/Markov_blanket",
+        "latex": "Definition of Markov Blanket: A Markov blanket of a random variable \\(Y\\) in a random variable set \\(\\mathcal{S}=\\{X_1,\\ldots,X_n\\}\\) is any subset \\(\\mathcal{S}_1\\) of \\(\\mathcal{S}\\), conditioned on which other variables are independent with \\(Y\\): \\(Y\\perp \\!\\!\\! \\perp\\mathcal{S}\\backslash\\mathcal{S}_1 \\mid \\mathcal{S}_1.\\) It means that \\(\\mathcal{S}_1\\) contains at least all the information one needs to infer \\(Y\\), where the variables in \\(\\mathcal{S}\\backslash\\mathcal{S}_1\\) are redundant.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "random_variable",
+            "indep_vars"
+        ]
+    },
+    "23": {
+        "id": 23,
+        "source": "https://en.wikipedia.org/wiki/Markov_blanket",
+        "latex": "Definition of Markov Boundary: A Markov boundary of \\(Y\\) in \\(\\mathcal{S}\\) is a subset \\(\\mathcal{S}_2\\) of \\(\\mathcal{S}\\), such that \\(\\mathcal{S}_2\\) itself is a Markov blanket of \\(Y\\), but any proper subset of \\(\\mathcal{S}_2\\) is not a Markov blanket of \\(Y\\). In other words, a Markov boundary is a minimal Markov blanket.",
+        "preliminary": "Definition of Markov Blanket: A Markov blanket of a random variable \\(Y\\) in a random variable set \\(\\mathcal{S}=\\{X_1,\\ldots,X_n\\}\\) is any subset \\(\\mathcal{S}_1\\) of \\(\\mathcal{S}\\), conditioned on which other variables are independent with \\(Y\\): \\(Y\\perp \\!\\!\\! \\perp\\mathcal{S}\\backslash\\mathcal{S}_1 \\mid \\mathcal{S}_1.\\) It means that \\(\\mathcal{S}_1\\) contains at least all the information one needs to infer \\(Y\\), where the variables in \\(\\mathcal{S}\\backslash\\mathcal{S}_1\\) are redundant.",
+        "possible_related_formal_defs": [
+            "random_variable",
+            "indep_vars",
+            "is_arg_min"
+        ]
+    },
+    "24": {
+        "id": 24,
+        "source": "https://en.wikipedia.org/wiki/Information_gain_(decision_tree)",
+        "latex": "Definition of Information Gain: Let \\(T\\) denote a set of training examples, each of the form \\((\\mathbf{x},y)=(x_1, x_2, x_3, ..., x_k, y)\\) where \\(x_a\\in \\mathrm{vals}(a)\\) is the value of the \\(a^{\\text{th}}\\) attribute or feature of example \\(\\mathbf{x}\\) and \\(y\\) is the corresponding class label. The information gain for an attribute is defined in terms of Shannon entropy \\(H(-)\\) as follows. For a value \\(v\\) taken by attribute \\(a\\), let \\(S_a{(v)} = \\{\\mathbf{x}\\in T|x_a=v\\}\\) be defined as the set of training inputs of \\(T\\) for which attribute \\(a\\) is equal to \\(v\\). Then the information gain of \\(T\\) for attribute \\(a\\) is the difference between the a priori Shannon entropy \\(H(T)\\) of the training set and the conditional entropy \\(H{(T|a)}=\\sum_{v\\in \\mathrm{vals}(a)} \\frac{|S_a{(v)}|}{|T|}\\cdot H(S_a(v))\\), \\(IG(T,a) = H(T) - H(T|a)\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "vector_space",
+            "entropy_density",
+            "finite_entropy",
+            "entropy",
+            "conditional_entropy"
+        ]
+    },
+    "25": {
+        "id": 25,
+        "source": "https://en.wikipedia.org/wiki/Locality-sensitive_hashing",
+        "latex": "Definition of Locality-Sensitive Hashing Family: A finite family \\(\\mathcal F\\) of functions \\(h\\colon M \\to S\\) is defined to be an locality-sensitive hashing (LSH) family for\n\\begin{itemize}\n    \\item a metric space \\(\\mathcal M=(M, d)\\),\n    \\item a threshold \\(r>0\\),\n    \\item an approximation factor \\(c>1\\),\n    \\item and probabilities \\(p_1 > p_2\\)\n\\end{itemize}\nif it satisfies the following condition. For any two points \\(a, b \\in M\\) and a hash function \\(h\\) chosen uniformly at random from \\(\\mathcal F\\):\n\\begin{itemize}\n    \\item If \\(d(a,b) \\le r\\), then \\(h(a)=h(b)\\) (i.e., \\(a\\) and \\(b\\) collide) with probability at least \\(p_1\\),\n    \\item If \\(d(a,b) \\ge cr\\), then \\(h(a)=h(b)\\) with probability at most \\(p_2\\).\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "finite",
+            "prob",
+            "events",
+            "Metric_space"
+        ]
+    },
+    "26": {
+        "id": 26,
+        "source": "https://en.wikipedia.org/wiki/Whitening_transformation",
+        "latex": "Definition of Whitening Matrix: Suppose \\(X\\) is a random (column) vector with non-singular covariance matrix \\(\\Sigma\\) and mean \\(0\\). A whitening matrix \\(W\\) satisfies the condition \\(W^\\mathrm{T} W = \\Sigma^{-1}\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "matrix",
+            "transpose_matrix",
+            "mult_matrix",
+            "inverse_matrix",
+            "expectation",
+            "variance",
+            "indep_vars",
+            "real_vector"
+        ]
+    },
+    "27": {
+        "id": 27,
+        "source": "https://en.wikipedia.org/wiki/Calinski%E2%80%93Harabasz_index",
+        "latex": "Definition of Between-Cluster Sum of Squares: Given a data set of \\(n\\) points: \\(\\{\\mathbf{x}_1,...,\\mathbf{x}_n\\}\\), and the assignment of these points to \\(k\\) clusters: \\(\\{C_1,...,C_k\\}\\). BCSS (Between-Cluster Sum of Squares) is the weighted sum of squared Euclidean distances between each cluster centroid (mean) and the overall data centroid (mean): \\[BCSS = \\sum_{i=1}^{k} n_i ||\\mathbf{c}_i - \\mathbf{c}||^2\\] where \\(n_i\\) is the number of points in cluster \\(C_i\\), \\(\\mathbf{c}_i\\) is the centroid of \\(C_i\\), and \\(\\mathbf{c}\\) is the overall centroid of the data.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "euclidean_space"
+        ]
+    },
+    "28": {
+        "id": 28,
+        "source": "https://en.wikipedia.org/wiki/Calinski%E2%80%93Harabasz_index",
+        "latex": "Definition of Within-Cluster Sum of Squares: Given a data set of \\(n\\) points: \\(\\{\\mathbf{x}_1,...,\\mathbf{x}_n\\}\\), and the assignment of these points to \\(k\\) clusters: \\(\\{C_1,...,C_k\\}\\). WCSS (Within-Cluster Sum of Squares) is the sum of squared Euclidean distances between the data points and their respective cluster centroids: \\[WCSS = \\sum_{i=1}^{k} \\sum_{\\mathbf{x} \\in C_i} ||\\mathbf{x} - \\mathbf{c}_i||^2\\] where \\(\\mathbf{c}_i\\) is the centroid of \\(C_i\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "euclidean_space"
+        ]
+    },
+    "29": {
+        "id": 29,
+        "source": "https://en.wikipedia.org/wiki/Medoid",
+        "latex": "Definition of Medoid: Let \\(\\mathcal X := \\{ x_1, x_2, \\dots, x_n \\}\\) be a set of \\(n\\) points in a space with a distance function \\(d\\). Medoid is defined as \\[x_{\\text{medoid}} = \\arg\\min_{y \\in \\mathcal X} \\sum_{i=1}^n d(y, x_i).\\]",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "Metric_space",
+            "arg_min",
+            "arg_min_on",
+            "euclidean_space"
+        ]
+    },
+    "30": {
+        "id": 30,
+        "source": "https://en.wikipedia.org/wiki/Growth_function",
+        "latex": "Definition of Set-Family Growth Function: Let \\(H\\) be a set family (a set of sets) and \\(C\\) a set. Their intersection is defined as the following set-family: \\(H\\cap C := \\{h\\cap C\\mid h\\in H\\}\\). The intersection-size (also called the index) of \\(H\\) with respect to \\(C\\) is \\(|H\\cap C|\\). The growth function measures the size of \\(H\\cap C\\) as a function of \\(|C|\\). Formally: \\(\\operatorname{Growth}(H,m) := \\max_{C: |C|=m} |H\\cap C|\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_max",
+            "arg_max"
+        ]
+    },
+    "31": {
+        "id": 31,
+        "source": "https://en.wikipedia.org/wiki/Growth_function",
+        "latex": "Definition of Hypothesis-Class Growth Function: Let \\(H\\) be a hypothesis-class (a set of binary functions) and \\(C\\) a set with \\(m\\) elements. The restriction of \\(H\\) to \\(C\\) is the set of binary functions on \\(C\\) that can be derived from \\(H\\): \\(H_{C} := \\{(h(x_1),\\ldots,h(x_m))\\mid h\\in H, x_i\\in C\\}\\). The growth function measures the size of \\(H_C\\) as a function of \\(|C|\\): \\(\\operatorname{Growth}(H,m) := \\max_{C: |C|=m} |H_C|\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_max",
+            "arg_max"
+        ]
+    },
+    "32": {
+        "id": 32,
+        "source": "https://en.wikipedia.org/wiki/Natarajan_dimension",
+        "latex": "Definition of Natarajan Dimension: Let \\(H\\) be a set of functions from a set \\(X\\) to a set \\(Y\\). \\(H\\) shatters a set \\(C \\subset X\\) if there exist two functions \\(f_0, f_1 \\in H\\) such that\n\\begin{itemize}\n    \\item For every \\(x \\in C, f_0(x) \\neq f_1(x)\\).\n    \\item For every \\(B\\subset C\\), there exists a function \\(h \\in H\\) such that for all \\(x \\in B, h(x) = f_0(x)\\) and for all \\(x \\in C - B, h(x) = f_1(x)\\).\n\\end{itemize}\nThe Natarajan dimension of \\(H\\) is the maximal cardinality of a set shattered by \\(H\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "is_arg_max",
+            "arg_max",
+            "powr"
+        ]
+    },
+    "33": {
+        "id": 33,
+        "source": "https://en.wikipedia.org/wiki/Occam_learning",
+        "latex": "Definition of Occam Algorithm: Let \\(\\mathcal{C}\\) and \\(\\mathcal{H}\\) be concept classes containing target concepts and hypotheses respectively. Then, for constants \\(\\alpha \\ge 0\\) and \\(0 \\le \\beta <1\\), a learning algorithm \\(L\\) is an \\((\\alpha,\\beta)\\)-Occam algorithm for \\(\\mathcal{C}\\) using \\(\\mathcal{H}\\) iff, given a set \\(S = \\{ x_1, \\dots, x_m \\}\\) of \\(m\\) samples labeled according to a concept \\(c \\in \\mathcal{C}\\), \\(L\\) outputs a hypothesis \\(h \\in \\mathcal{H}\\) such that\n\\begin{itemize}\n    \\item \\(h\\) is consistent with \\(c\\) on \\(S\\) (that is, \\(h(x)=c(x),\\forall x \\in S\\)), and\n    \\item \\(size(h) \\le (n \\cdot size(c))^\\alpha m^\\beta\\)\n\\end{itemize}\nwhere \\(n\\) is the maximum length of any sample \\(x \\in S\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real"
+        ]
+    },
+    "34": {
+        "id": 34,
+        "source": "https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension",
+        "latex": "Definition of VC Dimension of a Set-Family: Let \\(H\\) be a set family (a set of sets) and \\(C\\) a set. Their intersection is defined as the following set family: \\(H\\cap C := \\{h\\cap C\\mid h\\in H\\}.\\) We say that a set \\(C\\) is shattered by \\(H\\) if \\(H\\cap C\\) contains all the subsets of \\(C\\), i.e.: \\[|H\\cap C| = 2^{|C|}.\\] The VC dimension \\(D\\) of \\(H\\) is the cardinality of the largest set that is shattered by \\(H\\). If arbitrarily large sets can be shattered, the VC dimension is \\(\\infty\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "Pow",
+            "is_arg_max",
+            "powr"
+        ]
+    },
+    "35": {
+        "id": 35,
+        "source": "https://en.wikipedia.org/wiki/Autoencoder",
+        "latex": "Definition of Autoencoder: An autoencoder is defined by the following components:\n\\begin{quote}\nTwo sets: the space of decoded messages \\(\\mathcal X\\); the space of\nencoded messages \\(\\mathcal Z\\). Typically \\(\\mathcal X\\) and\n\\(\\mathcal Z\\) are Euclidean spaces, that is,\n\\(\\mathcal X = \\mathbb{R}^m, \\mathcal Z = \\mathbb{R}^n\\) with \\(m > n.\\)\n\\end{quote}\n\\begin{quote}\nTwo parametrized families of functions: the encoder family\n\\(E_\\phi:\\mathcal{X} \\rightarrow \\mathcal{Z}\\), parametrized by\n\\(\\phi\\); the decoder family\n\\(D_\\theta:\\mathcal{Z} \\rightarrow \\mathcal{X}\\), parametrized by\n\\(\\theta\\).\n\\end{quote}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "euclidean_space",
+            "real",
+            "real_vector"
+        ]
+    },
+    "36": {
+        "id": 36,
+        "source": "https://en.wikipedia.org/wiki/Stress_majorization",
+        "latex": "Definition of Stress Function: Given a set of \\(n\\) \\(m\\)-dimensional data items and a \\((n\\times r)\\) matrix \\(X\\) lists \\(n\\) points in \\(r\\) (\\(\\ll m)\\)-dimensional Euclidean space. The stress function is defined as: \\(\\sigma(X)=\\sum_{i<j\\le n}w_{ij}(d_{ij}(X)-\\delta_{ij})^2\\), where \\(w_{ij}\\ge 0\\) is a weight for the measurement between a pair of points \\((i,j)\\), \\(d_{ij}(X)\\) is the euclidean distance between \\(i\\) and \\(j\\), and \\(\\delta_{ij}\\) is the ideal distance between the points (their separation) in the \\(m\\)-dimensional data space.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "euclidean_space",
+            "matrix",
+            "pairwise"
+        ]
+    },
+    "37": {
+        "id": 37,
+        "source": "https://en.wikipedia.org/wiki/Tucker_decomposition",
+        "latex": "Definition of Tucker Decomposition: For a 3rd-order tensor \\(T \\in F^{n_{1} \\times n_{2} \\times n_{3}}\\), where \\(F\\) is either \\(\\mathbb{R}\\) or \\(\\mathbb{C}\\), Tucker Decomposition can be denoted as follows, \\(T = \\mathcal{T} \\times_{1} U^{(1)} \\times_{2} U^{(2)} \\times_{3} U^{(3)}\\) where \\(\\mathcal{T} \\in F^{d_{1} \\times d_{2} \\times d_{3}}\\) is the core tensor, a 3rd-order tensor that contains the 1-mode, 2-mode and 3-mode singular values of \\(T\\), which are defined as the Frobenius norm of the 1-mode, 2-mode and 3-mode slices of tensor \\(\\mathcal{T}\\) respectively. \\(U^{(1)}, U^{(2)}, U^{(3)}\\) are unitary matrices in \\(F^{d_{1} \\times n_{1}}, F^{d_{2} \\times n_{2}}, F^{d_{3} \\times n_{3}}\\) respectively. The \\(k\\)-mode product (\\emph{k} = 1, 2, 3) of \\(\\mathcal{T}\\) by \\(U^{(k)}\\) is denoted as \\(\\mathcal{T} \\times U^{(k)}\\) with entries as\n\\begin{align}\n    (\\mathcal{T} \\times_{1} U^{(1)})(i_{1}, j_{2}, j_{3}) &= \\sum_{j_{1}=1}^{d_{1}} \\mathcal{T}(j_{1}, j_{2}, j_{3})U^{(1)}(j_{1}, i_{1}) \\\\\n    (\\mathcal{T} \\times_{2} U^{(2)})(j_{1}, i_{2}, j_{3}) &= \\sum_{j_{2}=1}^{d_{2}} \\mathcal{T}(j_{1}, j_{2}, j_{3})U^{(2)}(j_{2}, i_{2}) \\\\\n    (\\mathcal{T} \\times_{3} U^{(3)})(j_{1}, j_{2}, i_{3}) &= \\sum_{j_{3}=1}^{d_{3}} \\mathcal{T}(j_{1}, j_{2}, j_{3})U^{(3)}(j_{3}, i_{3})\n\\end{align}\nAltogether, the decomposition may also be written more directly as\n\\[T(i_{1}, i_{2}, i_{3})=\n\\sum_{j_{1}=1}^{d_{1}}\n\\sum_{j_{2}=1}^{d_{2}}\n\\sum_{j_{3}=1}^{d_{3}}\n\\mathcal{T}(j_{1}, j_{2}, j_{3})\nU^{(1)}(j_{1}, i_{1})\nU^{(2)}(j_{2}, i_{2})\nU^{(3)}(j_{3}, i_{3})\\]",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "complex",
+            "vector_space"
+        ]
+    },
+    "38": {
+        "id": 38,
+        "source": "https://en.wikipedia.org/wiki/Gaussian_process",
+        "latex": "Definition of Gaussian Process: Using characteristic functions of random variables with \\(i\\) denoting the imaginary unit such that \\(i^2 =-1\\), the Gaussian property can be formulated as follows: a time continuous stochastic process \\(\\{X_t ; t\\in T\\}\\) is Gaussian if and only if, for every finite set of indices \\(t_1,\\ldots,t_k\\), there are real-valued \\(\\sigma_{\\ell j}\\), \\(\\mu_\\ell\\) with \\(\\sigma_{jj} > 0\\) such that the following equality holds for all \\(s_1,s_2,\\ldots,s_k\\in\\mathbb{R}\\), \\({ \\mathbb E }\\left[\\exp\\left(i \\sum_{\\ell=1}^k s_\\ell \\, \\mathbf{X}_{t_\\ell}\\right)\\right] = \\exp \\left(-\\tfrac{1}{2} \\sum_{\\ell, j} \\sigma_{\\ell j} s_\\ell s_j + i \\sum_\\ell \\mu_\\ell s_\\ell\\right)\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "complex",
+            "expectation",
+            "exp",
+            "normal_density",
+            "indep_vars"
+        ]
+    },
+    "39": {
+        "id": 39,
+        "source": "https://en.wikipedia.org/wiki/Polynomial_kernel",
+        "latex": "Definition of Polynomial Kernel: For degree-\\(d\\) polynomials, the polynomial kernel is defined as \\(K(\\mathbf{x},\\mathbf{y}) = (\\mathbf{x}^\\mathsf{T} \\mathbf{y} + c)^{d}\\) where \\(\\mathbf{x}\\) and \\(\\mathbf{y}\\) are vectors of size \\(n\\) in the input space, i.e. vectors of features computed from training or test samples and \\(c\\geq 0\\) is a free parameter trading off the influence of higher-order versus lower-order terms in the polynomial.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "powr",
+            "transpose_matrix",
+            "real_inner"
+        ]
+    },
+    "40": {
+        "id": 40,
+        "source": "https://en.wikipedia.org/wiki/Cross-entropy",
+        "latex": "Definition of Cross-Entropy: The cross-entropy of the distribution \\(q\\) relative to a distribution \\(p\\) over a given set is defined as follows: \\(H(p, q) = -\\operatorname{E}_p[\\log q]\\), where \\(E_p[\\cdot]\\) is the expected value operator with respect to the distribution \\(p\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real_distribution",
+            "expectation",
+            "prob",
+            "log",
+            "ln_real",
+            "entropy_density",
+            "entropy"
+        ]
+    },
+    "41": {
+        "id": 41,
+        "source": "https://en.wikipedia.org/wiki/Dominance-based_rough_set_approach",
+        "latex": "Definition of DRSA Decision Table: In dominance-based rough set approach (DRSA), data are often presented using a particular form of decision table. Formally, a DRSA decision table is a 4-tuple \\(S = \\langle U, Q, V, f \\rangle\\), where \\(U\\) is a finite set of objects, \\(Q\\) is a finite set of criteria, \\(V=\\bigcup_{q \\in Q} V_q\\) where \\(V_q\\) is the domain of the criterion \\(q\\) and \\(f \\colon U \\times Q \\to V\\) is an information function such that \\(f(x,q) \\in V_q\\) for every \\((x,q) \\in U \\times Q\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "finite",
+            "image"
+        ]
+    },
+    "42": {
+        "id": 42,
+        "source": "https://en.wikipedia.org/wiki/Error-driven_learning",
+        "latex": "Definition of Error-Driven Learning Components: The key components of error-driven learning include the following:\n\\begin{itemize}\n    \\item A set \\(S\\) of states representing the different situations that the learner can encounter.\n    \\item A set \\(A\\) of actions that the learner can take in each state.\n    \\item A prediction function \\(P(s,a)\\) that gives the learner's current prediction of the outcome of taking action \\(a\\) in state \\(s\\).\n    \\item An error function \\(E(o,p)\\) that compares the actual outcome \\(o\\) with the prediction \\(p\\) and produces an error value.\n    \\item An update rule \\(U(p,e)\\) that adjusts the prediction \\(p\\) in light of the error \\(e\\).\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real"
+        ]
+    },
+    "43": {
+        "id": 43,
+        "source": "https://en.wikipedia.org/wiki/Mixture_of_experts",
+        "latex": "Definition of MoE Ingredients: In mixture of experts (MoE), we always have the following ingredients, but they are constructed and combined differently.\n\\begin{itemize}\n    \\item There are experts \\(f_1, ..., f_n\\), each taking in the same input \\(x\\), and produces outputs \\(f_1(x), ..., f_n(x)\\).\n    \\item There is a single weighting function (aka gating function) \\(w\\), which takes in \\(x\\) and produces a vector of outputs \\((w(x)_1, ..., w(x)_n)\\).\n    \\item \\(\\theta = (\\theta_0, \\theta_1, ..., \\theta_n)\\) is the set of parameters. The parameter \\(\\theta_0\\) is for the weighting function.\n    \\item Given an input \\(x\\), the mixture of experts produces a single combined output by combining \\(f_1(x), ..., f_n(x)\\) according to the weights \\(w(x)_1, ..., w(x)_n\\) in some way.\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "vector_space",
+            "real_vector"
+        ]
+    },
+    "44": {
+        "id": 44,
+        "source": "https://en.wikipedia.org/wiki/Quadratic_unconstrained_binary_optimization",
+        "latex": "Definition of QUBO Function: The set of binary vectors of a fixed length \\(n>0\\) is denoted by \\(\\mathbb{B}^n\\), where \\(\\mathbb{B}=\\{0,1\\}\\) is the set of binary values (or bits). We are given a real-valued upper triangular matrix \\(Q\\in\\mathbb{R}^{n\\times n}\\), whose entries \\(Q_{ij}\\) define a weight for each pair of indices \\(i,j\\in\\{1,\\dots,n\\}\\) within the binary vector. We can define a QUBO function \\(f_Q: \\mathbb{B}^n\\rightarrow\\mathbb{R}\\) that assigns a value to each binary vector through \\(f_Q(x) = x^\\top Qx = \\sum_{i=1}^n \\sum_{j=i}^n Q_{ij} x_i x_j\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "vector_space",
+            "matrix",
+            "Pow",
+            "transpose_matrix",
+            "mult_matrix"
+        ]
+    },
+    "45": {
+        "id": 45,
+        "source": "https://en.wikipedia.org/wiki/Bernoulli_scheme",
+        "latex": "Definition of Bernoulli Scheme:  A Bernoulli scheme is a discrete-time stochastic process where each independent random variable may take on one of \\(N\\) distinct possible values, with the outcome \\(i\\) occurring with probability \\(p_i\\), with \\(i=1,...,N\\), and \\(\\sum_{i=1}^N p_i = 1\\). The sample space is usually denoted as \\(X=\\{1,\\ldots,N \\}^\\mathbb{Z}\\) as a shorthand for \\[X=\\{ x=(\\ldots,x_{-1},x_0,x_1,\\ldots) : x_k \\in \\{1,\\ldots,N\\} \\; \\forall k \\in \\mathbb{Z} \\}.\\] The associated measure is called the Bernoulli measure \\(\\mu = \\{p_1,\\ldots,p_N\\}^\\mathbb{Z}\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob",
+            "indep_vars",
+            "random_variable",
+            "binomial_distribution"
+        ]
+    },
+    "46": {
+        "id": 46,
+        "source": "https://en.wikipedia.org/wiki/Entropy_rate",
+        "latex": "Definition of Entropy Rate: A process \\(X\\) with a countable index gives rise to the sequence of its joint entropies \\(H_n(X_1, X_2, \\dots X_n)\\). If the limit exists, the entropy rate is defined as \\[H(X) := \\lim_{n \\to \\infty} \\tfrac{1}{n} H_n.\\]",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "entropy_density",
+            "finite_entropy",
+            "entropy"
+        ]
+    },
+    "47": {
+        "id": 47,
+        "source": "https://en.wikipedia.org/wiki/Generalized_filtering",
+        "latex": "Definition of Generalized Filtering Tuple:  Generalized filtering rests on the tuple \\((\\Omega,U,X,S,p,q)\\):\n\\begin{itemize}\n    \\item A sample space \\(\\Omega\\) from which random fluctuations \\(\\omega \\in \\Omega\\) are drawn.\n    \\item Control states \\(U \\in \\mathbb{R}\\) -- that act as external causes, input or forcing terms.\n    \\item Hidden states \\(X:X \\times U \\times \\Omega \\to \\mathbb{R}\\) -- that cause sensory states and depend on control states.\n    \\item Sensor states \\(S:X \\times U \\times \\Omega \\to \\mathbb{R}\\) -- a probabilistic mapping from hidden and control states.\n    \\item Generative density \\(p(\\tilde{s},\\tilde{x},\\tilde{u}\\mid m)\\) -- over sensory, hidden and control states under a generative model \\(m\\).\n    \\item Variational density \\(q(\\tilde{x},\\tilde{u}\\mid \\tilde{\\mu})\\) -- over hidden and control states with mean \\(\\tilde{\\mu} \\in \\mathbb{R}\\).\n\\end{itemize}\nHere \\textasciitilde{} denotes a variable in generalized coordinates of motion: \\(\\tilde{u} = [u,u',u'',\\ldots]^T\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "cond_prob",
+            "expectation",
+            "transpose_matrix"
+        ]
+    },
+    "48": {
+        "id": 48,
+        "source": "https://en.wikipedia.org/wiki/Hidden_Markov_model",
+        "latex": "Definition of Discrete Hidden Markov Model: Let \\(X_n\\) and \\(Y_n\\) be discrete-time stochastic processes and \\(n\\geq 1\\). The pair \\((X_n,Y_n)\\) is a hidden Markov model if\n\\begin{itemize}\n    \\item \\(X_n\\) is a Markov process whose behavior is not directly observable (\"hidden\");\n    \\item \\(\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_1=x_1,\\ldots,X_n=x_n\\bigr)=\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_n=x_n\\bigr),\\) for every \\(n\\geq 1,\\) \\(x_1,\\ldots, x_n,\\) and every Borel set \\(A\\).\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "cond_prob",
+            "events",
+            "random_variable",
+            "borel_measurable"
+        ]
+    },
+    "49": {
+        "id": 49,
+        "source": "https://en.wikipedia.org/wiki/Hidden_Markov_model",
+        "latex": "Definition of Continuous Hidden Markov Model: Let \\(X_t\\) and \\(Y_t\\) be continuous-time stochastic processes. The pair \\((X_t,Y_t)\\) is a hidden Markov model if\n\\begin{itemize}\n    \\item \\(X_t\\) is a Markov process whose behavior is not directly observable (\"hidden\");\n    \\item \\(\\operatorname{\\mathbf{P}}(Y_{t_0} \\in A \\mid \\{X_t \\in B_t\\}_{ t\\leq t_0}) = \\operatorname{\\mathbf{P}}(Y_{t_0} \\in A \\mid X_{t_0} \\in B_{t_0})\\), for every \\(t_0,\\) every Borel set \\(A,\\) and every family of Borel sets \\(\\{B_t\\}_{t \\leq t_0}.\\)\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "pairwise",
+            "cond_prob",
+            "events",
+            "random_variable",
+            "borel_measurable"
+        ]
+    },
+    "50": {
+        "id": 50,
+        "source": "https://en.wikipedia.org/wiki/Markov_chain",
+        "latex": "Definition of Discrete-Time Markov Chain: A discrete-time Markov chain is a sequence of random variables \\(X_1,X_2,X_3,...\\) with the Markov property, namely that the probability of moving to the next state depends only on the present state and not on the previous states: \\(\\Pr(X_{n+1}=x\\mid X_1=x_1, X_2=x_2, \\ldots, X_n=x_n) = \\Pr(X_{n+1}=x\\mid X_n=x_n),\\) if both conditional probabilities are well defined, that is, if \\(\\Pr(X_1=x_1,\\ldots,X_n=x_n)>0.\\)",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "cond_prob",
+            "events",
+            "prob",
+            "random_variable"
+        ]
+    },
+    "51": {
+        "id": 51,
+        "source": "https://en.wikipedia.org/wiki/Markov_partition",
+        "latex": "Definition of Markov Partition: A Markov partition is a finite cover of the invariant set of the manifold by a set of curvilinear rectangles \\(\\{E_1, E_2, \\ldots, E_r\\}\\) such that\n\\begin{itemize}\n    \\item For any pair of points \\(x,y\\in E_i\\), that \\(W_s(x)\\cap W_u(y) \\in E_i\\)\n    \\item \\(\\operatorname{Int} E_i \\cap \\operatorname{Int} E_j=\\emptyset\\) for \\(i\\ne j\\)\n    \\item If \\(x\\in \\operatorname{Int} E_i\\) and \\(\\varphi(x)\\in \\operatorname{Int} E_j\\), then \\(\\varphi\\left[W_u(x)\\cap E_i\\right] \\supset W_u(\\varphi x) \\cap E_j\\) and \\(\\varphi\\left[W_s(x)\\cap E_i\\right] \\subset W_s(\\varphi x) \\cap E_j\\)\n\\end{itemize}\nHere, \\(W_u(x)\\) and \\(W_s(x)\\) are the unstable and stable manifolds of \\(x\\), respectively, and \\(\\operatorname{Int} E_i\\) simply denotes the interior of \\(E_i\\).",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "finite",
+            "pairwise"
+        ]
+    },
+    "52": {
+        "id": 52,
+        "source": "https://en.wikipedia.org/wiki/Markov_property",
+        "latex": "Definition of Markov Property: Let \\((\\Omega,\\mathcal{F},P)\\) be a probability space with a filtration \\((\\mathcal{F}_s,\\ s \\in I)\\), for some (totally ordered) index set \\(I\\); and let \\((S,\\mathcal{S})\\) be a measurable space. A \\((S,\\mathcal{S})\\)-valued stochastic process \\(X=\\{X_t:\\Omega \\to S\\}_{t\\in I}\\) adapted to the filtration is said to possess the Markov property if, for each \\(A \\in \\mathcal{S}\\) and each \\(s,t\\in I\\) with \\(s<t\\), \\(P(X_t \\in A \\mid \\mathcal{F}_s) = P(X_t \\in A\\mid X_s).\\)",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob_space",
+            "measurable_on",
+            "borel_measurable",
+            "random_variable",
+            "cond_prob"
+        ]
+    },
+    "53": {
+        "id": 53,
+        "source": "https://en.wikipedia.org/wiki/Reinforcement_learning",
+        "latex": "Definition of Basic Elements of Reinforcement Learning: Basic reinforcement learning is modeled as a Markov decision process:\n\\begin{itemize}\n    \\item a set of environment and agent states, \\(\\mathcal{S}\\);\n    \\item a set of actions, \\(\\mathcal{A}\\), of the agent;\n    \\item \\(P_a(s,s')=\\Pr(S_{t+1}=s'\\mid S_t=s, A_t=a)\\), the probability of transition (at time \\(t\\)) from state \\(s\\) to state \\(s'\\) under action \\(a\\);\n    \\item \\(R_a(s,s')\\), the immediate reward after transition from \\(s\\) to \\(s'\\) with action \\(a\\).\n\\end{itemize}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "cond_prob"
+        ]
+    },
+    "54": {
+        "id": 54,
+        "source": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
+        "latex": "Definition of GAN Objective Function: The original GAN is defined as the following game:\n\\begin{quote}\nEach probability space \\((\\Omega, \\mu_{\\text{ref}})\\) defines a GAN game. There are 2 players: generator and discriminator.\n\nThe generator's strategy set is \\(\\mathcal P(\\Omega)\\), the set of all probability measures \\(\\mu_G\\) on \\(\\Omega\\).\n\nThe discriminator's strategy set is the set of Markov kernels \\(\\mu_D: \\Omega \\to \\mathcal P[0, 1]\\), where \\(\\mathcal P[0, 1]\\) is the set of probability measures on \\([0, 1]\\).\n\nThe GAN game is a zero-sum game, with objective function \\(L(\\mu_G, \\mu_D) := \\operatorname E_{x\\sim \\mu_{\\text{ref}}, y\\sim \\mu_D(x)}[\\ln y] + \\operatorname E_{x\\sim \\mu_G, y\\sim \\mu_D(x)}[\\ln (1-y)].\\)\n\\end{quote}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "prob_space",
+            "prob",
+            "measurable_on",
+            "expectation",
+            "log",
+            "ln_real"
+        ]
+    },
+    "55": {
+        "id": 55,
+        "source": "https://en.wikipedia.org/wiki/Wasserstein_GAN",
+        "latex": "Definition of Wasserstein GAN Objective Function: By the Kantorovich-Rubenstein duality, the definition of Wasserstein GAN is clear:\n\\begin{quote}\nA Wasserstein GAN game is defined by a probability space \\((\\Omega, \\mathcal B, \\mu_{ref})\\), where \\(\\Omega\\) is a metric space, and a constant \\(K > 0\\). There are 2 players: generator and discriminator (also called \"critic\").\n\nThe generator's strategy set is the set of all probability measures \\(\\mu_G\\) on \\((\\Omega, \\mathcal B)\\).\n\nThe discriminator's strategy set is the set of measurable functions of type \\(D: \\Omega \\to \\mathbb{R}\\) with bounded Lipschitz-norm: \\(\\|D\\|_L \\leq K\\).\n\nThe Wasserstein GAN game is a zero-sum game, with objective function \\(L_{WGAN}(\\mu_G, D) := \\mathbb{E}_{x\\sim \\mu_G}[D(x)] -\\mathbb E_{x\\sim  \\mu_{ref}}[D(x)].\\)\n\\end{quote}",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "Metric_space",
+            "prob_space",
+            "prob",
+            "expectation",
+            "borel_measurable",
+            "measurable_on",
+            "Lipschitz_continuous_map"
+        ]
+    }
+}

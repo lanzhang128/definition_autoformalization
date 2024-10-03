@@ -1,0 +1,362 @@
+{
+    "complex": {
+        "import_thy": "HOL.Complex",
+        "formal_code": "codatatype complex = Complex (Re: real) (Im: real)"
+    },
+    "norm": {
+        "import_thy": "HOL.Complex",
+        "formal_code": "definition \"norm z = sqrt ((Re z)\\<^sup>2 + (Im z)\\<^sup>2)\""
+    },
+    "has_derivative": {
+        "import_thy": "HOL.Deriv",
+        "formal_code": "definition has_derivative :: \"('a::real_normed_vector \\<Rightarrow> 'b::real_normed_vector) \\<Rightarrow>\n    ('a \\<Rightarrow> 'b) \\<Rightarrow> 'a filter \\<Rightarrow> bool\"  (infix \"(has'_derivative)\" 50)\n  where \"(f has_derivative f') F \\<longleftrightarrow>\n    bounded_linear f' \\<and>\n    ((\\<lambda>y. ((f y - f (Lim F (\\<lambda>x. x))) - f' (y - Lim F (\\<lambda>x. x))) /\\<^sub>R norm (y - Lim F (\\<lambda>x. x))) \\<longlongrightarrow> 0) F\""
+    },
+    "fact": {
+        "import_thy": "HOL.Factorial",
+        "formal_code": "definition fact :: \"nat \\<Rightarrow> 'a\"\n  where fact_prod: \"fact n = of_nat (\\<Prod>{1..n})\""
+    },
+    "finite": {
+        "import_thy": "HOL.Finite_Set",
+        "formal_code": "inductive finite :: \"'a set \\<Rightarrow> bool\"\n  where\n    emptyI [simp, intro!]: \"finite {}\"\n  | insertI [simp, intro!]: \"finite A \\<Longrightarrow> finite (insert a A)\""
+    },
+    "infinite": {
+        "import_thy": "HOL.Finite_Set",
+        "formal_code": "abbreviation infinite :: \"'a set \\<Rightarrow> bool\"\n  where \"infinite S \\<equiv> \\<not> finite S\""
+    },
+    "comp": {
+        "import_thy": "HOL.Fun",
+        "formal_code": "definition comp :: \"('b \\<Rightarrow> 'c) \\<Rightarrow> ('a \\<Rightarrow> 'b) \\<Rightarrow> 'a \\<Rightarrow> 'c\"  (infixl \"\\<circ>\" 55)\n  where \"f \\<circ> g = (\\<lambda>x. f (g x))\""
+    },
+    "inj_on": {
+        "import_thy": "HOL.Fun",
+        "formal_code": "definition inj_on :: \"('a \\<Rightarrow> 'b) \\<Rightarrow> 'a set \\<Rightarrow> bool\"  \\<comment> \\<open>injective\\<close>\n  where \"inj_on f A \\<longleftrightarrow> (\\<forall>x\\<in>A. \\<forall>y\\<in>A. f x = f y \\<longrightarrow> x = y)\""
+    },
+    "bij_betw": {
+        "import_thy": "HOL.Fun",
+        "formal_code": "definition bij_betw :: \"('a \\<Rightarrow> 'b) \\<Rightarrow> 'a set \\<Rightarrow> 'b set \\<Rightarrow> bool\"  \\<comment> \\<open>bijective\\<close>\n  where \"bij_betw f A B \\<longleftrightarrow> inj_on f A \\<and> f ` A = B\""
+    },
+    "the_inv_into": {
+        "import_thy": "HOL.Fun",
+        "formal_code": "definition the_inv_into :: \"'a set \\<Rightarrow> ('a \\<Rightarrow> 'b) \\<Rightarrow> ('b \\<Rightarrow> 'a)\"\n  where \"the_inv_into A f = (\\<lambda>x. THE y. y \\<in> A \\<and> f y = x)\""
+    },
+    "is_arg_min": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition is_arg_min :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> ('b \\<Rightarrow> bool) \\<Rightarrow> 'b \\<Rightarrow> bool\" where\n\"is_arg_min f P x = (P x \\<and> \\<not>(\\<exists>y. P y \\<and> f y < f x))\""
+    },
+    "arg_min": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition arg_min :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> ('b \\<Rightarrow> bool) \\<Rightarrow> 'b\" where\n\"arg_min f P = (SOME x. is_arg_min f P x)\""
+    },
+    "arg_min_on": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition arg_min_on :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> 'b set \\<Rightarrow> 'b\" where\n\"arg_min_on f S = arg_min f (\\<lambda>x. x \\<in> S)\""
+    },
+    "is_arg_max": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition is_arg_max :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> ('b \\<Rightarrow> bool) \\<Rightarrow> 'b \\<Rightarrow> bool\" where\n\"is_arg_max f P x = (P x \\<and> \\<not>(\\<exists>y. P y \\<and> f y > f x))\""
+    },
+    "arg_max": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition arg_max :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> ('b \\<Rightarrow> bool) \\<Rightarrow> 'b\" where\n\"arg_max f P = (SOME x. is_arg_max f P x)\""
+    },
+    "arg_max_on": {
+        "import_thy": "HOL.Lattices_Big",
+        "formal_code": "definition arg_max_on :: \"('b \\<Rightarrow> 'a) \\<Rightarrow> 'b set \\<Rightarrow> 'b\" where\n\"arg_max_on f S = arg_max f (\\<lambda>x. x \\<in> S)\""
+    },
+    "dependent": {
+        "import_thy": "HOL.Modules",
+        "formal_code": "definition dependent :: \"'b set \\<Rightarrow> bool\"\n  where dependent_explicit: \"dependent s \\<longleftrightarrow> (\\<exists>t u. finite t \\<and> t \\<subseteq> s \\<and> (\\<Sum>v\\<in>t. u v *s v) = 0 \\<and> (\\<exists>v\\<in>t. u v \\<noteq> 0))\""
+    },
+    "representation": {
+        "import_thy": "HOL.Modules",
+        "formal_code": "definition representation :: \"'b set \\<Rightarrow> 'b \\<Rightarrow> 'b \\<Rightarrow> 'a\"\n  where \"representation basis v =\n    (if independent basis \\<and> v \\<in> span basis then\n      SOME f. (\\<forall>v. f v \\<noteq> 0 \\<longrightarrow> v \\<in> basis) \\<and> finite {v. f v \\<noteq> 0} \\<and> (\\<Sum>v\\<in>{v. f v \\<noteq> 0}. f v *s v) = v\n    else (\\<lambda>b. 0))\""
+    },
+    "real": {
+        "import_thy": "HOL.Real",
+        "formal_code": "quotient_type real = \"nat \\<Rightarrow> rat\" / partial: realrel\n  morphisms rep_real Real\n  by (rule part_equivp_realrel)"
+    },
+    "Sup": {
+        "import_thy": "HOL.Real",
+        "formal_code": "definition \"Sup X = (LEAST z::real. \\<forall>x\\<in>X. x \\<le> z)\""
+    },
+    "Inf": {
+        "import_thy": "HOL.Real",
+        "formal_code": "definition \"Inf X = - Sup (uminus ` X)\" for X :: \"real set\""
+    },
+    "real_vector": {
+        "import_thy": "HOL.Real_Vector_Spaces",
+        "formal_code": "class real_vector = scaleR + ab_group_add +\n  assumes scaleR_add_right: \"a *\\<^sub>R (x + y) = a *\\<^sub>R x + a *\\<^sub>R y\"\n  and scaleR_add_left: \"(a + b) *\\<^sub>R x = a *\\<^sub>R x + b *\\<^sub>R x\"\n  and scaleR_scaleR: \"a *\\<^sub>R b *\\<^sub>R x = (a * b) *\\<^sub>R x\"\n  and scaleR_one: \"1 *\\<^sub>R x = x\""
+    },
+    "real_normed_vector": {
+        "import_thy": "HOL.Real_Vector_Spaces",
+        "formal_code": "class real_normed_vector = real_vector + sgn_div_norm + dist_norm + uniformity_dist + open_uniformity +\n  assumes norm_eq_zero [simp]: \"norm x = 0 \\<longleftrightarrow> x = 0\"\n    and norm_triangle_ineq: \"norm (x + y) \\<le> norm x + norm y\"\n    and norm_scaleR [simp]: \"norm (scaleR a x) = \\<bar>a\\<bar> * norm x\""
+    },
+    "Pow": {
+        "import_thy": "HOL.Set",
+        "formal_code": "definition Pow :: \"'a set \\<Rightarrow> 'a set set\"\n  where Pow_def: \"Pow A = {B. B \\<subseteq> A}\""
+    },
+    "image": {
+        "import_thy": "HOL.Set",
+        "formal_code": "definition image :: \"('a \\<Rightarrow> 'b) \\<Rightarrow> 'a set \\<Rightarrow> 'b set\"    (infixr \"`\" 90)\n  where \"f ` A = {y. \\<exists>x\\<in>A. y = f x}\""
+    },
+    "pairwise": {
+        "import_thy": "HOL.Set",
+        "formal_code": "definition pairwise :: \"('a \\<Rightarrow> 'a \\<Rightarrow> bool) \\<Rightarrow> 'a set \\<Rightarrow> bool\"\n  where \"pairwise R S \\<longleftrightarrow> (\\<forall>x \\<in> S. \\<forall>y \\<in> S. x \\<noteq> y \\<longrightarrow> R x y)\""
+    },
+    "disjnt": {
+        "import_thy": "HOL.Set",
+        "formal_code": "definition disjnt :: \"'a set \\<Rightarrow> 'a set \\<Rightarrow> bool\"\n  where \"disjnt A B \\<longleftrightarrow> A \\<inter> B = {}\""
+    },
+    "topological_space": {
+        "import_thy": "HOL.Topological_Spaces",
+        "formal_code": "class topological_space = \"open\" +\n  assumes open_UNIV [simp, intro]: \"open UNIV\"\n  assumes open_Int [intro]: \"open S \\<Longrightarrow> open T \\<Longrightarrow> open (S \\<inter> T)\"\n  assumes open_Union [intro]: \"\\<forall>S\\<in>K. open S \\<Longrightarrow> open (\\<Union>K)\""
+    },
+    "convergent": {
+        "import_thy": "HOL.Topological_Spaces",
+        "formal_code": "definition (in topological_space) convergent :: \"(nat \\<Rightarrow> 'a) \\<Rightarrow> bool\"\n  where \"convergent X = (\\<exists>L. X \\<longlonglongrightarrow> L)\""
+    },
+    "compact": {
+        "import_thy": "HOL.Topological_Spaces",
+        "formal_code": "definition compact :: \"'a set \\<Rightarrow> bool\" where\ncompact_eq_Heine_Borel:  (* This name is used for backwards compatibility *)\n    \"compact S \\<longleftrightarrow> (\\<forall>C. (\\<forall>c\\<in>C. open c) \\<and> S \\<subseteq> \\<Union>C \\<longrightarrow> (\\<exists>D\\<subseteq>C. finite D \\<and> S \\<subseteq> \\<Union>D))\""
+    },
+    "exp": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition exp :: \"'a \\<Rightarrow> 'a::{real_normed_algebra_1,banach}\"\n  where \"exp = (\\<lambda>x. \\<Sum>n. x^n /\\<^sub>R fact n)\""
+    },
+    "powr": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition powr :: \"'a \\<Rightarrow> 'a \\<Rightarrow> 'a::ln\"  (infixr \"powr\" 80)\n  \\<comment> \\<open>exponentation via ln and exp\\<close>\n  where \"x powr a \\<equiv> if x = 0 then 0 else exp (a * ln x)\""
+    },
+    "ln_real": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition ln_real :: \"real \\<Rightarrow> real\"\n  where \"ln_real x = (THE u. exp u = x)\""
+    },
+    "log": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition log :: \"real \\<Rightarrow> real \\<Rightarrow> real\"\n  \\<comment> \\<open>logarithm of \\<^term>\\<open>x\\<close> to base \\<^term>\\<open>a\\<close>\\<close>\n  where \"log a x = ln x / ln a\""
+    },
+    "sin": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition sin :: \"'a \\<Rightarrow> 'a::{real_normed_algebra_1,banach}\"\n  where \"sin = (\\<lambda>x. \\<Sum>n. sin_coeff n *\\<^sub>R x^n)\""
+    },
+    "cos": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition cos :: \"'a \\<Rightarrow> 'a::{real_normed_algebra_1,banach}\"\n  where \"cos = (\\<lambda>x. \\<Sum>n. cos_coeff n *\\<^sub>R x^n)\""
+    },
+    "pi": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition pi :: real\n  where \"pi = 2 * (THE x. 0 \\<le> x \\<and> x \\<le> 2 \\<and> cos x = 0)\""
+    },
+    "tanh": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "definition tanh :: \"'a :: {banach, real_normed_field} \\<Rightarrow> 'a\" where\n  \"tanh x = sinh x / cosh x\""
+    },
+    "nth_root": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "fun nth_root _ 1 x = SOME x\n  | nth_root _ _ 0 = SOME 0\n  | nth_root _ _ 1 = SOME 1\n  | nth_root threshold n x =\n  let\n    fun newton_step y = ((n - 1) * y + x div Integer.pow (n - 1) y) div n\n    fun is_root y = Integer.pow n y <= x andalso x < Integer.pow n (y + 1)\n  in\n    if x < n then\n      SOME 1\n    else if x < Integer.pow n 2 then \n      SOME 1 \n    else \n      let\n        val y = Real.floor (Math.pow (Real.fromInt x, Real.fromInt 1 / Real.fromInt n))\n      in\n        if is_root y then\n          SOME y\n        else\n          iterate threshold is_root newton_step ((x + n - 1) div n)\n      end\n  end"
+    },
+    "sqrt": {
+        "import_thy": "HOL.Transcendental",
+        "formal_code": "fun sqrt _ 0 = SOME 0\n  | sqrt _ 1 = SOME 1\n  | sqrt threshold n =\n    let\n      fun aux (a, b) = if n >= b * b then aux (b, b * b) else (a, b)\n      val (lower_root, lower_n) = aux (1, 2)\n      fun newton_step x = (x + n div x) div 2\n      fun is_sqrt r = r*r <= n andalso n < (r+1)*(r+1)\n      val y = Real.floor (Math.sqrt (Real.fromInt n))\n    in\n      if is_sqrt y then\n        SOME y\n      else\n        Option.mapPartial (iterate threshold is_sqrt newton_step o (fn x => x * lower_root))\n          (sqrt threshold (n div lower_n))\n    end"
+    },
+    "vector_space": {
+        "import_thy": "HOL.Vector_Spaces",
+        "formal_code": "locale vector_space =\n  fixes scale :: \"'a::field \\<Rightarrow> 'b::ab_group_add \\<Rightarrow> 'b\" (infixr \"*s\" 75)\n  assumes vector_space_assms:\\<comment> \\<open>re-stating the assumptions of \\<open>module\\<close> instead of extending \\<open>module\\<close>\n   allows us to rewrite in the sublocale.\\<close>\n    \"a *s (x + y) = a *s x + a *s y\"\n    \"(a + b) *s x = a *s x + b *s x\"\n    \"a *s (b *s x) = (a * b) *s x\"\n    \"1 *s x = x\""
+    },
+    "linear": {
+        "import_thy": "HOL.Vector_Spaces",
+        "formal_code": "locale linear = vs1: vector_space s1 + vs2: vector_space s2 + module_hom s1 s2 f\n  for s1 :: \"'a::field \\<Rightarrow> 'b::ab_group_add \\<Rightarrow> 'b\" (infixr \"*a\" 75)\n  and s2 :: \"'a::field \\<Rightarrow> 'c::ab_group_add \\<Rightarrow> 'c\" (infixr \"*b\" 75)\n  and f :: \"'b \\<Rightarrow> 'c\""
+    },
+    "polynomial": {
+        "import_thy": "HOL-Algebra.Polynomials",
+        "formal_code": "definition polynomial :: \"_ \\<Rightarrow> 'a set \\<Rightarrow> 'a list \\<Rightarrow> bool\" (\"polynomial\\<index>\")\n  where \"polynomial\\<^bsub>R\\<^esub> K p \\<longleftrightarrow> p = [] \\<or> (set p \\<subseteq> K \\<and> lead_coeff p \\<noteq> \\<zero>\\<^bsub>R\\<^esub>)\""
+    },
+    "Metric_space": {
+        "import_thy": "HOL-Analysis.Abstract_Metric_Spaces",
+        "formal_code": "locale Metric_space =\n  fixes M :: \"'a set\" and d :: \"'a \\<Rightarrow> 'a \\<Rightarrow> real\"\n  assumes nonneg [simp]: \"\\<And>x y. 0 \\<le> d x y\"\n  assumes commute: \"\\<And>x y. d x y = d y x\"\n  assumes zero [simp]: \"\\<And>x y. \\<lbrakk>x \\<in> M; y \\<in> M\\<rbrakk> \\<Longrightarrow> d x y = 0 \\<longleftrightarrow> x=y\"\n  assumes triangle: \"\\<And>x y z. \\<lbrakk>x \\<in> M; y \\<in> M; z \\<in> M\\<rbrakk> \\<Longrightarrow> d x z \\<le> d x y + d y z\""
+    },
+    "Lipschitz_continuous_map": {
+        "import_thy": "HOL-Analysis.Abstract_Metric_Spaces",
+        "formal_code": "definition Lipschitz_continuous_map\n  where \"Lipschitz_continuous_map \\<equiv>\n      \\<lambda>m1 m2 f. f \\<in> mspace m1 \\<rightarrow> mspace m2 \\<and>\n        (\\<exists>B. \\<forall>x \\<in> mspace m1. \\<forall>y \\<in> mspace m1. mdist m2 (f x) (f y) \\<le> B * mdist m1 x y)\""
+    },
+    "locally_compact_space": {
+        "import_thy": "HOL-Analysis.Abstract_Topological_Spaces",
+        "formal_code": "definition locally_compact_space\n  where \"locally_compact_space X \\<equiv>\n    \\<forall>x \\<in> topspace X. \\<exists>U K. openin X U \\<and> compactin X K \\<and> x \\<in> U \\<and> U \\<subseteq> K\""
+    },
+    "borel_measurable": {
+        "import_thy": "HOL-Analysis.Borel_Space",
+        "formal_code": "abbreviation \"borel_measurable M \\<equiv> measurable M borel\""
+    },
+    "measurable_on": {
+        "import_thy": "HOL-Analysis.Equivalence_Measurable_On_Borel",
+        "formal_code": "definition measurable_on :: \"('a::euclidean_space \\<Rightarrow> 'b::real_normed_vector) \\<Rightarrow> 'a set \\<Rightarrow> bool\"\n  (infixr \"measurable'_on\" 46)\n  where \"f measurable_on S \\<equiv>\n        \\<exists>N g. negligible N \\<and>\n              (\\<forall>n. continuous_on UNIV (g n)) \\<and>\n              (\\<forall>x. x \\<notin> N \\<longrightarrow> (\\<lambda>n. g n x) \\<longlonglongrightarrow> (if x \\<in> S then f x else 0))\""
+    },
+    "euclidean_space": {
+        "import_thy": "HOL-Analysis.Euclidean_Space",
+        "formal_code": "class euclidean_space = real_inner +\n  fixes Basis :: \"'a set\"\n  assumes nonempty_Basis [simp]: \"Basis \\<noteq> {}\"\n  assumes finite_Basis [simp]: \"finite Basis\"\n  assumes inner_Basis:\n    \"\\<lbrakk>u \\<in> Basis; v \\<in> Basis\\<rbrakk> \\<Longrightarrow> inner u v = (if u = v then 1 else 0)\"\n  assumes euclidean_all_zero_iff:\n    \"(\\<forall>u\\<in>Basis. inner x u = 0) \\<longleftrightarrow> (x = 0)\""
+    },
+    "real_inner": {
+        "import_thy": "HOL-Analysis.Inner_Product",
+        "formal_code": "class real_inner = real_vector + sgn_div_norm + dist_norm + uniformity_dist + open_uniformity +\n  fixes inner :: \"'a \\<Rightarrow> 'a \\<Rightarrow> real\"\n  assumes inner_commute: \"inner x y = inner y x\"\n  and inner_add_left: \"inner (x + y) z = inner x z + inner y z\"\n  and inner_scaleR_left [simp]: \"inner (scaleR r x) y = r * (inner x y)\"\n  and inner_ge_zero [simp]: \"0 \\<le> inner x x\"\n  and inner_eq_zero_iff [simp]: \"inner x x = 0 \\<longleftrightarrow> x = 0\"\n  and norm_eq_sqrt_inner: \"norm x = sqrt (inner x x)\""
+    },
+    "sparse": {
+        "import_thy": "HOL-Analysis.Isolated",
+        "formal_code": "definition sparse :: \"real \\<Rightarrow> 'a :: metric_space set \\<Rightarrow> bool\"\n  where \"sparse \\<epsilon> X \\<longleftrightarrow> (\\<forall>x\\<in>X. \\<forall>y\\<in>X-{x}. dist x y > \\<epsilon>)\""
+    },
+    "almost_everywhere": {
+        "import_thy": "HOL-Analysis.Measure_Space",
+        "formal_code": "abbreviation almost_everywhere :: \"'a measure \\<Rightarrow> ('a \\<Rightarrow> bool) \\<Rightarrow> bool\" where\n  \"almost_everywhere M P \\<equiv> eventually P (ae_filter M)\""
+    },
+    "matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition \"matrix = {(f::(nat \\<Rightarrow> nat \\<Rightarrow> 'a::zero)). finite (nonzero_positions f)}\""
+    },
+    "transpose_matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition transpose_matrix :: \"('a::zero) matrix \\<Rightarrow> 'a matrix\" where\n  \"transpose_matrix == Abs_matrix o transpose_infmatrix o Rep_matrix\""
+    },
+    "mult_matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition mult_matrix :: \"(('a::zero) \\<Rightarrow> ('b::zero) \\<Rightarrow> ('c::zero)) \\<Rightarrow> ('c \\<Rightarrow> 'c \\<Rightarrow> 'c) \\<Rightarrow> 'a matrix \\<Rightarrow> 'b matrix \\<Rightarrow> 'c matrix\" where\n  \"mult_matrix fmul fadd A B == mult_matrix_n (max (ncols A) (nrows B)) fmul fadd A B\""
+    },
+    "zero_matrix_def": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition zero_matrix_def: \"0 = Abs_matrix (\\<lambda>j i. 0)\""
+    },
+    "inverse_matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition inverse_matrix :: \"('a::{ring_1}) matrix \\<Rightarrow> 'a matrix \\<Rightarrow> bool\" where\n  \"inverse_matrix A X == (right_inverse_matrix A X) \\<and> (left_inverse_matrix A X)\""
+    },
+    "take_rows": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition take_rows :: \"('a::zero) matrix \\<Rightarrow> nat \\<Rightarrow> 'a matrix\" where\n  \"take_rows A r == Abs_matrix(% j i. if (j < r) then (Rep_matrix A j i) else 0)\""
+    },
+    "one_matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition\n  one_matrix :: \"nat \\<Rightarrow> ('a::{zero,one}) matrix\" where\n  \"one_matrix n = Abs_matrix (% j i. if j = i & j < n then 1 else 0)\""
+    },
+    "singleton_matrix": {
+        "import_thy": "HOL-Matrix_LP.Matrix",
+        "formal_code": "definition singleton_matrix :: \"nat \\<Rightarrow> nat \\<Rightarrow> ('a::zero) \\<Rightarrow> 'a matrix\" where\n  \"singleton_matrix j i a == Abs_matrix(% m n. if j = m & i = n then a else 0)\""
+    },
+    "sparse_row_vector": {
+        "import_thy": "HOL-Matrix_LP.SparseMatrix",
+        "formal_code": "definition sparse_row_vector :: \"('a::ab_group_add) spvec \\<Rightarrow> 'a matrix\"\n  where \"sparse_row_vector arr = foldl (% m x. m + (singleton_matrix 0 (fst x) (snd x))) 0 arr\""
+    },
+    "real_cond_exp": {
+        "import_thy": "HOL-Probability.Conditional_Expectation",
+        "formal_code": "definition real_cond_exp :: \"'a measure \\<Rightarrow> 'a measure \\<Rightarrow> ('a \\<Rightarrow> real) \\<Rightarrow> ('a \\<Rightarrow> real)\" where\n  \"real_cond_exp M F f =\n    (\\<lambda>x. enn2real(nn_cond_exp M F (\\<lambda>x. ennreal (f x)) x) - enn2real(nn_cond_exp M F (\\<lambda>x. ennreal (-f x)) x))\""
+    },
+    "finite_borel_measure": {
+        "import_thy": "HOL-Probability.Distribution_Functions",
+        "formal_code": "locale finite_borel_measure = finite_measure M for M :: \"real measure\" +\n  assumes M_is_borel: \"sets M = sets borel\""
+    },
+    "real_distribution": {
+        "import_thy": "HOL-Probability.Distribution_Functions",
+        "formal_code": "locale real_distribution = prob_space M for M :: \"real measure\" +\n  assumes events_eq_borel [simp, measurable_cong]: \"sets M = sets borel\""
+    },
+    "exponential_density": {
+        "import_thy": "HOL-Probability.Distributions",
+        "formal_code": "abbreviation exponential_density :: \"real \\<Rightarrow> real \\<Rightarrow> real\" where\n  \"exponential_density \\<equiv> erlang_density 0\""
+    },
+    "normal_density": {
+        "import_thy": "HOL-Probability.Distributions",
+        "formal_code": "definition normal_density :: \"real \\<Rightarrow> real \\<Rightarrow> real \\<Rightarrow> real\" where\n  \"normal_density \\<mu> \\<sigma> x = 1 / sqrt (2 * pi * \\<sigma>\\<^sup>2) * exp (-(x - \\<mu>)\\<^sup>2/ (2 * \\<sigma>\\<^sup>2))\""
+    },
+    "std_normal_density": {
+        "import_thy": "HOL-Probability.Distributions",
+        "formal_code": "abbreviation std_normal_density :: \"real \\<Rightarrow> real\" where\n  \"std_normal_density \\<equiv> normal_density 0 1\""
+    },
+    "binomial_distribution": {
+        "import_thy": "HOL-Probability.Hoeffding",
+        "formal_code": "locale binomial_distribution =\n  fixes n :: nat and p :: real\n  assumes p: \"p \\<in> {0..1}\""
+    },
+    "indep_sets": {
+        "import_thy": "HOL-Probability.Independent_Family",
+        "formal_code": "definition (in prob_space)\n  \"indep_sets F I \\<longleftrightarrow> (\\<forall>i\\<in>I. F i \\<subseteq> events) \\<and>\n    (\\<forall>J\\<subseteq>I. J \\<noteq> {} \\<longrightarrow> finite J \\<longrightarrow> (\\<forall>A\\<in>Pi J F. prob (\\<Inter>j\\<in>J. A j) = (\\<Prod>j\\<in>J. prob (A j))))\""
+    },
+    "indep_events": {
+        "import_thy": "HOL-Probability.Independent_Family",
+        "formal_code": "definition (in prob_space)\n  indep_events_def_alt: \"indep_events A I \\<longleftrightarrow> indep_sets (\\<lambda>i. {A i}) I\""
+    },
+    "indep_vars": {
+        "import_thy": "HOL-Probability.Independent_Family",
+        "formal_code": "definition (in prob_space)\n  indep_vars_def2: \"indep_vars M' X I \\<longleftrightarrow>\n    (\\<forall>i\\<in>I. random_variable (M' i) (X i)) \\<and>\n    indep_sets (\\<lambda>i. { X i -` A \\<inter> space M | A. A \\<in> sets (M' i)}) I\""
+    },
+    "entropy_density": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition\n  \"entropy_density b M N = log b \\<circ> enn2real \\<circ> RN_deriv M N\""
+    },
+    "KL_divergence": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition\n  \"KL_divergence b M N = integral\\<^sup>L N (entropy_density b M N)\""
+    },
+    "finite_entropy": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition (in information_space) finite_entropy :: \"'b measure \\<Rightarrow> ('a \\<Rightarrow> 'b) \\<Rightarrow> ('b \\<Rightarrow> real) \\<Rightarrow> bool\"\nwhere\n  \"finite_entropy S X f \\<longleftrightarrow>\n    distributed M S X f \\<and>\n    integrable S (\\<lambda>x. f x * log b (f x)) \\<and>\n    (\\<forall>x\\<in>space S. 0 \\<le> f x)\""
+    },
+    "mutual_information": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition (in prob_space)\n  \"mutual_information b S T X Y =\n    KL_divergence b (distr M S X \\<Otimes>\\<^sub>M distr M T Y) (distr M (S \\<Otimes>\\<^sub>M T) (\\<lambda>x. (X x, Y x)))\""
+    },
+    "entropy": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition (in prob_space) entropy :: \"real \\<Rightarrow> 'b measure \\<Rightarrow> ('a \\<Rightarrow> 'b) \\<Rightarrow> real\" where\n  \"entropy b S X = - KL_divergence b S (distr M S X)\""
+    },
+    "conditional_mutual_information": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition (in prob_space)\n  \"conditional_mutual_information b MX MY MZ X Y Z \\<equiv>\n    mutual_information b MX (MY \\<Otimes>\\<^sub>M MZ) X (\\<lambda>x. (Y x, Z x)) -\n    mutual_information b MX MZ X Z\""
+    },
+    "conditional_entropy": {
+        "import_thy": "HOL-Probability.Information",
+        "formal_code": "definition (in prob_space)\n  \"conditional_entropy b S T X Y = - (\\<integral>(x, y). log b (enn2real (RN_deriv (S \\<Otimes>\\<^sub>M T) (distr M (S \\<Otimes>\\<^sub>M T) (\\<lambda>x. (X x, Y x))) (x, y)) /\n    enn2real (RN_deriv T (distr M T Y) y)) \\<partial>distr M (S \\<Otimes>\\<^sub>M T) (\\<lambda>x. (X x, Y x)))\""
+    },
+    "map_pmf": {
+        "import_thy": "HOL-Probability.Probability_Mass_Function",
+        "formal_code": "definition \"map_pmf f M = bind_pmf M (\\<lambda>x. return_pmf (f x))\""
+    },
+    "pair_pmf": {
+        "import_thy": "HOL-Probability.Probability_Mass_Function",
+        "formal_code": "definition \"pair_pmf A B = bind_pmf A (\\<lambda>x. bind_pmf B (\\<lambda>y. return_pmf (x, y)))\""
+    },
+    "pmf_of_list": {
+        "import_thy": "HOL-Probability.Probability_Mass_Function",
+        "formal_code": "definition pmf_of_list ::\" ('a \\<times> real) list \\<Rightarrow> 'a pmf\" where\n  \"pmf_of_list xs = embed_pmf (\\<lambda>x. sum_list (map snd (filter (\\<lambda>z. fst z = x) xs)))\""
+    },
+    "prob_space": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "locale prob_space = finite_measure +\n  assumes emeasure_space_1: \"emeasure M (space M) = 1\""
+    },
+    "events": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "abbreviation (in prob_space) \"events \\<equiv> sets M\""
+    },
+    "prob": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "abbreviation (in prob_space) \"prob \\<equiv> measure M"
+    },
+    "random_variable": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "abbreviation (in prob_space) \"random_variable M' X \\<equiv> X \\<in> measurable M M'\""
+    },
+    "expectation": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "abbreviation (in prob_space) \"expectation \\<equiv> integral\\<^sup>L M\""
+    },
+    "variance": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "abbreviation (in prob_space) \"variance X \\<equiv> integral\\<^sup>L M (\\<lambda>x. (X x - expectation X)\\<^sup>2)\""
+    },
+    "cond_prob": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "definition\n  \"cond_prob M P Q = \\<P>(\\<omega> in M. P \\<omega> \\<and> Q \\<omega>) / \\<P>(\\<omega> in M. Q \\<omega>)\""
+    },
+    "distributed": {
+        "import_thy": "HOL-Probability.Probability_Measure",
+        "formal_code": "definition distributed :: \"'a measure \\<Rightarrow> 'b measure \\<Rightarrow> ('a \\<Rightarrow> 'b) \\<Rightarrow> ('b \\<Rightarrow> ennreal) \\<Rightarrow> bool\"\nwhere\n  \"distributed M N X f \\<longleftrightarrow>\n  distr M N X = density N f \\<and> f \\<in> borel_measurable N \\<and> X \\<in> measurable M N\""
+    },
+    "field": {
+        "import_thy": "HOL.Fields",
+        "formal_code": "class field = comm_ring_1 + inverse +\n  assumes field_inverse: \"a \\<noteq> 0 \\<Longrightarrow> inverse a * a = 1\"\n  assumes field_divide_inverse: \"a / b = a * inverse b\"\n  assumes field_inverse_zero: \"inverse 0 = 0\""
+    }
+}
