@@ -78,15 +78,10 @@ if __name__ == '__main__':
     prompt_content = prompt_content.replace('{Additional Instructions}', add_inst)
 
     if '{{previous}}' in prompt_content:
-        if os.path.exists(args.previous_json):
-            previous = True
-            with open(args.previous_json, 'r', encoding='utf-8') as f:
-                previous_dic = json.load(f)
-            error_files_dir = args.previous_json[:-5] + '_all'
-            if not os.path.exists(error_files_dir):
-                raise FileNotFoundError(f'{error_files_dir} does not exist.')
-        else:
-            raise FileNotFoundError(f'{args.previous_json} does not exist.')
+        previous = True
+        error_files_dir = args.previous_json[:-5] + '_all'
+        if not os.path.exists(error_files_dir):
+            raise FileNotFoundError(f'{error_files_dir} does not exist.')
     else:
         previous = False
 
@@ -109,9 +104,12 @@ if __name__ == '__main__':
         user_content = user_content.replace('{preliminary}', preliminary)
         user_content = user_content.replace('{formal_defs}', formal_defs)
         if previous:
-            user_content = user_content.replace('{previous}', previous_dic[key]['statement'])
             thy_file_path = os.path.join(error_files_dir, f'test_{key}.thy')
             error_log_path = os.path.join(error_files_dir, f'test_{key}.error.log')
+            with open(thy_file_path, 'r', encoding='utf-8') as f:
+                previous_code = f.read()
+            user_content = user_content.replace('{previous}', previous_code)
+
             validity, first_syntax_error, all_syntax_error = parse_error_file(error_log_path, thy_file_path)
             user_content = user_content.replace('{correctness}', str(validity))
             user_content = user_content.replace('{error_details}', all_syntax_error)
