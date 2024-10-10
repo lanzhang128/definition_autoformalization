@@ -41,9 +41,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Autoformalization with LLMs')
     parser.add_argument('--model_name', default='gpt-4o-2024-05-13',
                         help='name of the LLM')
-    parser.add_argument('--result_json', default='results/gpt_4o_wiki_zs.json',
+    parser.add_argument('--result_json', default='results/gpt_4o_wiki_zs_det_syn.json',
                         help='json file to store results')
-    parser.add_argument('--prompt_json', default='prompts/zs.json',
+    parser.add_argument('--prompt_json', default='prompts/zs_det_syn.json',
                         help='json file to store prompt')
     parser.add_argument('--test_json', default='data/def_wiki.json',
                         help='json file containing test data')

@@ -99,8 +99,8 @@ class Checker:
 
         return num_correct_lines / (len(main_body) - len(blank_lines))
 
-    def check(self, res_dic, files_dir):
-        for key in tqdm(res_dic.keys()):
+    def check(self, keys, files_dir):
+        for key in tqdm(keys):
             error_log_path = os.path.join(files_dir, f'test_{key}.error.log')
             with open(error_log_path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
@@ -178,10 +178,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     files_dir = args.folder
-    result_json = '_'.join(files_dir.split('_')[:-1])+'.json'
-    with open(result_json, 'r', encoding='utf-8') as f:
-        res_dic = json.load(f)
+    with open('data/def_wiki_test.json', 'r', encoding='utf-8') as f:
+        keys = json.load(f).keys()
 
     checker = Checker()
-    checker.check(res_dic, files_dir)
-    assert checker.print_result(files_dir) == len(res_dic.keys())
+    checker.check(keys, files_dir)
+    assert checker.print_result(files_dir) == len(keys)
