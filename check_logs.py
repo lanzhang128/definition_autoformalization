@@ -3,6 +3,7 @@ import os
 import json
 import argparse
 import numpy as np
+import pandas as pd
 from tqdm import tqdm
 
 
@@ -12,13 +13,14 @@ class Checker:
             'Inner syntax error': 'SYN',
             'Outer syntax error': 'SYN',
             'Malformed command syntax': 'SYN',
-            'Bad name binding': 'SYN',
+            'Bad name': 'SYN',
             'Bad number of arguments': 'SYN',
             'Extra free type variable(s)': 'SYN',
             'Undefined type name': 'UDF',
             'Undeclared class': 'UDF',
             'Undefined locale': 'UDF',
-            'No type arity list': 'UDF',
+            'Undefined constant': 'UDF',
+            'No type arity': 'UDF',
             'Inner lexical error': 'ILE',
             'Type unification failed': 'TUF',
             'Extra variables on rhs': 'EVR'
@@ -36,21 +38,22 @@ class Checker:
         self.count_errors['First Error Occurrence'] = {}
 
     def error_occurrence(self, lines, key):
-        for err in self.errors.keys():
-            if err in lines[2]:
-                self.count_errors[err]['case'].append(f'test_{key}')
-                self.count_errors[err]['occur'].append(0)
-                if f'test_{key}' not in self.count_errors[self.errors[err]]['case']:
-                   self.count_errors[self.errors[err]]['case'].append(f'test_{key}')
-                   self.count_errors[self.errors[err]]['occur'].append(0)
-
         error_list = ast.literal_eval(lines[2][lines[2].find('['):-1])
+        for err in self.errors.keys():
+            for error in error_list:
+                if err in error.split(':')[1]:
+                    self.count_errors[err]['case'].append(f'test_{key}')
+                    self.count_errors[err]['occur'].append(0)
+                    if f'test_{key}' not in self.count_errors[self.errors[err]]['case']:
+                       self.count_errors[self.errors[err]]['case'].append(f'test_{key}')
+                       self.count_errors[self.errors[err]]['occur'].append(0)
+                    break
 
         print_state = False
         for error in error_list:
             not_in_list_state = True
             for err in self.errors.keys():
-                if err in error:
+                if err in error.split(':')[1]:
                     self.count_errors[err]['occur'][-1] += 1
                     self.count_errors[self.errors[err]]['occur'][-1] += 1
                     not_in_list_state = False
@@ -158,11 +161,13 @@ class Checker:
         }
         return percent
 
-    def print_result(self):
+    def print_result(self, files_dir):
         total = len(self.count_errors['valid']) + len(self.count_errors['invalid'])
         print(self.percent_statistics(total))
-        print(self.error_statistics())
-        print(self.category_statistics())
+        res = {}
+        res.update(self.error_statistics())
+        res.update(self.category_statistics())
+        pd.DataFrame(res).to_csv(os.path.join(files_dir, 'statistics.csv'))
         return total
 
 
@@ -179,4 +184,4 @@ if __name__ == '__main__':
 
     checker = Checker()
     checker.check(res_dic, files_dir)
-    assert checker.print_result() == len(res_dic.keys())
+    assert checker.print_result(files_dir) == len(res_dic.keys())
