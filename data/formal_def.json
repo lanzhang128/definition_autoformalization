@@ -175,6 +175,10 @@
         "import_thy": "HOL-Analysis.Abstract_Metric_Spaces",
         "formal_code": "locale Metric_space =\n  fixes M :: \"'a set\" and d :: \"'a \\<Rightarrow> 'a \\<Rightarrow> real\"\n  assumes nonneg [simp]: \"\\<And>x y. 0 \\<le> d x y\"\n  assumes commute: \"\\<And>x y. d x y = d y x\"\n  assumes zero [simp]: \"\\<And>x y. \\<lbrakk>x \\<in> M; y \\<in> M\\<rbrakk> \\<Longrightarrow> d x y = 0 \\<longleftrightarrow> x=y\"\n  assumes triangle: \"\\<And>x y z. \\<lbrakk>x \\<in> M; y \\<in> M; z \\<in> M\\<rbrakk> \\<Longrightarrow> d x z \\<le> d x y + d y z\""
     },
+    "metric": {
+        "import_thy": "HOL-Analysis.Abstract_Metric_Spaces",
+        "formal_code": "typedef 'a metric = \"{(M::'a set,d). Metric_space M d}\""
+    },
     "Lipschitz_continuous_map": {
         "import_thy": "HOL-Analysis.Abstract_Metric_Spaces",
         "formal_code": "definition Lipschitz_continuous_map\n  where \"Lipschitz_continuous_map \\<equiv>\n      \\<lambda>m1 m2 f. f \\<in> mspace m1 \\<rightarrow> mspace m2 \\<and>\n        (\\<exists>B. \\<forall>x \\<in> mspace m1. \\<forall>y \\<in> mspace m1. mdist m2 (f x) (f y) \\<le> B * mdist m1 x y)\""
@@ -310,6 +314,10 @@
     "conditional_entropy": {
         "import_thy": "HOL-Probability.Information",
         "formal_code": "definition (in prob_space)\n  \"conditional_entropy b S T X Y = - (\\<integral>(x, y). log b (enn2real (RN_deriv (S \\<Otimes>\\<^sub>M T) (distr M (S \\<Otimes>\\<^sub>M T) (\\<lambda>x. (X x, Y x))) (x, y)) /\n    enn2real (RN_deriv T (distr M T Y) y)) \\<partial>distr M (S \\<Otimes>\\<^sub>M T) (\\<lambda>x. (X x, Y x)))\""
+    },
+    "pmf": {
+        "import_thy": "HOL-Probability.Probability_Mass_Function",
+        "formal_code": "typedef 'a pmf = \"{M :: 'a measure. prob_space M \\<and> sets M = UNIV \\<and> (AE x in M. measure M {x} \\<noteq> 0)}\""
     },
     "map_pmf": {
         "import_thy": "HOL-Probability.Probability_Mass_Function",

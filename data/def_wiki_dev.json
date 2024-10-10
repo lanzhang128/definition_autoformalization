@@ -16,6 +16,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "events",
             "cond_prob"
         ]
@@ -32,6 +33,7 @@
             "Sup",
             "indep_vars",
             "prob",
+            "pmf",
             "events"
         ]
     },
@@ -100,6 +102,7 @@
             "real_distribution",
             "expectation",
             "prob",
+            "pmf",
             "log",
             "ln_real",
             "entropy_density",
@@ -112,6 +115,7 @@
         "latex": "Definition of Discrete Hidden Markov Model: Let \\(X_n\\) and \\(Y_n\\) be discrete-time stochastic processes and \\(n\\geq 1\\). The pair \\((X_n,Y_n)\\) is a hidden Markov model if\n\\begin{itemize}\n    \\item \\(X_n\\) is a Markov process whose behavior is not directly observable (\"hidden\");\n    \\item \\(\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_1=x_1,\\ldots,X_n=x_n\\bigr)=\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_n=x_n\\bigr),\\) for every \\(n\\geq 1,\\) \\(x_1,\\ldots, x_n,\\) and every Borel set \\(A\\).\n\\end{itemize}",
         "preliminary": "",
         "possible_related_formal_defs": [
+            "pmf",
             "cond_prob",
             "events",
             "random_variable",

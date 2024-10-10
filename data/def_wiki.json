@@ -16,6 +16,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "events",
             "random_variable",
             "indep_vars",
@@ -29,6 +30,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "events",
             "cond_prob",
             "vector_space"
@@ -41,6 +43,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "events",
             "cond_prob"
         ]
@@ -52,6 +55,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "expectation",
             "real_vector",
             "one_matrix",
@@ -103,6 +107,7 @@
             "Sup",
             "indep_vars",
             "prob",
+            "pmf",
             "events"
         ]
     },
@@ -115,6 +120,7 @@
             "real",
             "expectation",
             "prob",
+            "pmf",
             "vector_space",
             "indep_vars",
             "Inf"
@@ -254,6 +260,7 @@
         "possible_related_formal_defs": [
             "pmf_of_list",
             "prob",
+            "pmf",
             "cond_prob",
             "random_variable"
         ]
@@ -301,6 +308,7 @@
             "real",
             "finite",
             "prob",
+            "pmf",
             "events",
             "Metric_space"
         ]
@@ -476,6 +484,7 @@
             "real_distribution",
             "expectation",
             "prob",
+            "pmf",
             "log",
             "ln_real",
             "entropy_density",
@@ -533,6 +542,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "prob",
+            "pmf",
             "indep_vars",
             "random_variable",
             "binomial_distribution"
@@ -556,6 +566,7 @@
         "preliminary": "",
         "possible_related_formal_defs": [
             "real",
+            "pmf",
             "cond_prob",
             "expectation",
             "transpose_matrix"
@@ -567,6 +578,7 @@
         "latex": "Definition of Discrete Hidden Markov Model: Let \\(X_n\\) and \\(Y_n\\) be discrete-time stochastic processes and \\(n\\geq 1\\). The pair \\((X_n,Y_n)\\) is a hidden Markov model if\n\\begin{itemize}\n    \\item \\(X_n\\) is a Markov process whose behavior is not directly observable (\"hidden\");\n    \\item \\(\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_1=x_1,\\ldots,X_n=x_n\\bigr)=\\operatorname{\\mathbf{P}}\\bigl(Y_n \\in A\\ \\bigl|\\ X_n=x_n\\bigr),\\) for every \\(n\\geq 1,\\) \\(x_1,\\ldots, x_n,\\) and every Borel set \\(A\\).\n\\end{itemize}",
         "preliminary": "",
         "possible_related_formal_defs": [
+            "pmf",
             "cond_prob",
             "events",
             "random_variable",
@@ -581,6 +593,7 @@
         "possible_related_formal_defs": [
             "real",
             "pairwise",
+            "pmf",
             "cond_prob",
             "events",
             "random_variable",
@@ -596,6 +609,7 @@
             "cond_prob",
             "events",
             "prob",
+            "pmf",
             "random_variable"
         ]
     },
@@ -619,7 +633,8 @@
             "measurable_on",
             "borel_measurable",
             "random_variable",
-            "cond_prob"
+            "cond_prob",
+            "pmf"
         ]
     },
     "53": {
@@ -628,7 +643,8 @@
         "latex": "Definition of Basic Elements of Reinforcement Learning: Basic reinforcement learning is modeled as a Markov decision process:\n\\begin{itemize}\n    \\item a set of environment and agent states, \\(\\mathcal{S}\\);\n    \\item a set of actions, \\(\\mathcal{A}\\), of the agent;\n    \\item \\(P_a(s,s')=\\Pr(S_{t+1}=s'\\mid S_t=s, A_t=a)\\), the probability of transition (at time \\(t\\)) from state \\(s\\) to state \\(s'\\) under action \\(a\\);\n    \\item \\(R_a(s,s')\\), the immediate reward after transition from \\(s\\) to \\(s'\\) with action \\(a\\).\n\\end{itemize}",
         "preliminary": "",
         "possible_related_formal_defs": [
-            "cond_prob"
+            "cond_prob",
+            "pmf"
         ]
     },
     "54": {
@@ -639,6 +655,7 @@
         "possible_related_formal_defs": [
             "prob_space",
             "prob",
+            "pmf",
             "measurable_on",
             "expectation",
             "log",
@@ -655,6 +672,7 @@
             "Metric_space",
             "prob_space",
             "prob",
+            "pmf",
             "expectation",
             "borel_measurable",
             "measurable_on",
