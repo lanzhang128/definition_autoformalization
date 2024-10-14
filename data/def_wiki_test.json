@@ -168,6 +168,17 @@
             "exp"
         ]
     },
+    "18": {
+        "id": 18,
+        "source": "https://en.wikipedia.org/wiki/Perceptron",
+        "latex": "Definition of Threshold Function: A function that maps its input \\(\\mathbf{x}\\) (a real-valued vector) to an output value \\(f(\\mathbf{x})\\) (a single binary value): \\[f(\\mathbf{x}) = h(\\mathbf{w} \\cdot \\mathbf{x} + b)\\] where \\(h\\) is the Heaviside step-function, \\(\\mathbf{w}\\) is a vector of real-valued weights, \\(\\mathbf{w} \\cdot \\mathbf{x}\\) is the dot product \\(\\sum_{i=1}^m w_i x_i\\), where \\(m\\) is the number of inputs to the perceptron, and \\(b\\) is the bias.",
+        "preliminary": "",
+        "possible_related_formal_defs": [
+            "real",
+            "real_vector",
+            "real_inner"
+        ]
+    },
     "19": {
         "id": 19,
         "source": "https://en.wikipedia.org/wiki/Radial_basis_function",
@@ -201,16 +212,6 @@
             "pmf",
             "cond_prob",
             "random_variable"
-        ]
-    },
-    "22": {
-        "id": 22,
-        "source": "https://en.wikipedia.org/wiki/Markov_blanket",
-        "latex": "Definition of Markov Blanket: A Markov blanket of a random variable \\(Y\\) in a random variable set \\(\\mathcal{S}=\\{X_1,\\ldots,X_n\\}\\) is any subset \\(\\mathcal{S}_1\\) of \\(\\mathcal{S}\\), conditioned on which other variables are independent with \\(Y\\): \\(Y\\perp \\!\\!\\! \\perp\\mathcal{S}\\backslash\\mathcal{S}_1 \\mid \\mathcal{S}_1.\\) It means that \\(\\mathcal{S}_1\\) contains at least all the information one needs to infer \\(Y\\), where the variables in \\(\\mathcal{S}\\backslash\\mathcal{S}_1\\) are redundant.",
-        "preliminary": "",
-        "possible_related_formal_defs": [
-            "random_variable",
-            "indep_vars"
         ]
     },
     "23": {
