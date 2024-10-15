@@ -70,9 +70,11 @@ if __name__ == '__main__':
         prompt = json.load(f)
     prompt_content = prompt['user']
     for inst in ['General Instruction', 'Stylistic Instruction', 'Output Instruction']:
-        prompt_content = prompt_content.replace('{'+inst+'}', instructions[inst])
         if inst == 'General Instruction' and 'minif2f' in args.test_json:
+            prompt_content = prompt_content.replace('{' + inst + '}', instructions[inst] + ' Do not give any proof.')
             prompt_content = prompt_content.replace('definition', 'statement')
+        else:
+            prompt_content = prompt_content.replace('{'+inst+'}', instructions[inst])
     add_inst = ''
     for i in range(len(prompt['Additional Instructions'])):
         inst = prompt['Additional Instructions'][i]
