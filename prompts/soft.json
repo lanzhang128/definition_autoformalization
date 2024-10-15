@@ -2,5 +2,5 @@
     "system": "",
     "user": "General Instruction:\n{General Instruction}\n\nStylistic Instruction:\n{Stylistic Instruction}\n\nAdditional Instructions:\n{Additional Instructions}\nOutput Instruction:\n{Output Instruction}",
     "assistant": "{statement}",
-    "Additional Instructions": ["Formal Definition Grounding", "Detailed Refinement"]
+    "Additional Instructions": ["Soft-IFDC"]
 }
