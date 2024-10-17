@@ -175,10 +175,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='model evaluation')
     parser.add_argument('--folder', default='results/gpt_4o_wiki_zs_all',
                         help='folder containing error log files')
+    parser.add_argument('--test_json', default='data/def_wiki_test.json',
+                        help='json file containing test data')
     args = parser.parse_args()
 
     files_dir = args.folder
-    with open('data/def_wiki_test.json', 'r', encoding='utf-8') as f:
+    with open(args.test_json, 'r', encoding='utf-8') as f:
         keys = json.load(f).keys()
 
     checker = Checker()
