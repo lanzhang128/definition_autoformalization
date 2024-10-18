@@ -45,8 +45,8 @@ class Checker:
                     self.count_errors[err]['case'].append(f'test_{key}')
                     self.count_errors[err]['occur'].append(0)
                     if f'test_{key}' not in self.count_errors[self.errors[err]]['case']:
-                       self.count_errors[self.errors[err]]['case'].append(f'test_{key}')
-                       self.count_errors[self.errors[err]]['occur'].append(0)
+                        self.count_errors[self.errors[err]]['case'].append(f'test_{key}')
+                        self.count_errors[self.errors[err]]['occur'].append(0)
                     break
 
         print_state = False
@@ -121,32 +121,32 @@ class Checker:
 
                 self.count_errors['invalid'].append(f'test_{key}')
 
-    def error_statistics(self):
-        den = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
-               - len(self.count_errors['Fake Non-Exist Theory']))
+    def error_statistics(self, total):
+        num_zeros = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
+                     - len(self.count_errors['Fake Non-Exist Theory']))
         res_dic = {}
         for err in self.errors.keys():
             res_dic[err] = {
                 'case': len(self.count_errors[err]['case']),
                 'occur': sum(self.count_errors[err]['occur']),
-                'percentage': len(self.count_errors[err]['case']) / den
+                'percentage': len(self.count_errors[err]['case']) / total
             }
-            occur = self.count_errors[err]['occur'] + [0] * (den - len(self.count_errors[err]['case']))
+            occur = self.count_errors[err]['occur'] + [0] * (num_zeros - len(self.count_errors[err]['case']))
             res_dic[err]['mean'] = np.mean(occur)
             res_dic[err]['std'] = np.std(occur)
         return res_dic
 
-    def category_statistics(self):
-        den = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
-               - len(self.count_errors['Fake Non-Exist Theory']))
+    def category_statistics(self, total):
+        num_zeros = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
+                     - len(self.count_errors['Fake Non-Exist Theory']))
         res_dic = {}
         for cat in self.errors.values():
             res_dic[cat] = {
                 'case': len(self.count_errors[cat]['case']),
                 'occur': sum(self.count_errors[cat]['occur']),
-                'percentage': len(self.count_errors[cat]['case']) / den
+                'percentage': len(self.count_errors[cat]['case']) / total
             }
-            occur = self.count_errors[cat]['occur'] + [0] * (den - len(self.count_errors[cat]['case']))
+            occur = self.count_errors[cat]['occur'] + [0] * (num_zeros - len(self.count_errors[cat]['case']))
             res_dic[cat]['mean'] = np.mean(occur)
             res_dic[cat]['std'] = np.std(occur)
         return res_dic
@@ -154,10 +154,10 @@ class Checker:
     def percent_statistics(self, total):
         percent = {
             'Valid': len(self.count_errors['valid']) / total,
-            'Time Run-Out': len(self.count_errors['Time Run-Out']) / total,
-            'Fake Non-Exist Theory': len(self.count_errors['Fake Non-Exist Theory']) / total,
             'First Error Occurrence': sum(self.count_errors['First Error Occurrence'].values())
-                                      / len(self.count_errors['First Error Occurrence'].values())
+                                      / len(self.count_errors['First Error Occurrence'].values()),
+            'Time Run-Out': len(self.count_errors['Time Run-Out']) / total,
+            'Fake Non-Exist Theory': len(self.count_errors['Fake Non-Exist Theory']) / total
         }
         return percent
 
@@ -165,8 +165,8 @@ class Checker:
         total = len(self.count_errors['valid']) + len(self.count_errors['invalid'])
         print(self.percent_statistics(total))
         res = {}
-        res.update(self.error_statistics())
-        res.update(self.category_statistics())
+        res.update(self.error_statistics(total))
+        res.update(self.category_statistics(total))
         pd.DataFrame(res).to_csv(os.path.join(files_dir, 'statistics.csv'))
         return total
 
