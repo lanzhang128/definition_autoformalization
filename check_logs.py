@@ -12,6 +12,7 @@ class Checker:
         self.errors = {
             'Inner syntax error': 'SYN',
             'Outer syntax error': 'SYN',
+            'Inner lexical error': 'SYN',
             'Malformed command syntax': 'SYN',
             'Bad name': 'SYN',
             'Bad number of arguments': 'SYN',
@@ -21,9 +22,8 @@ class Checker:
             'Undefined locale': 'UDF',
             'Undefined constant': 'UDF',
             'No type arity': 'UDF',
-            'Inner lexical error': 'ILE',
-            'Type unification failed': 'TUF',
-            'Extra variables on rhs': 'EVR'
+            'Extra variables on rhs': 'UDF',
+            'Type unification failed': 'TUF'
         }
         self.count_errors = {
             'valid': [],
@@ -67,8 +67,10 @@ class Checker:
             timeout = float(lines[3][25:-1])
             if timeout > 60:
                 self.count_errors['Time Run-Out'].append(f'test_{key}')
+                self.count_errors['First Error Occurrence'][f'test_{key}'] = 0
             else:
                 self.count_errors['Fake Non-Exist Theory'].append(f'test_{key}')
+                self.count_errors['First Error Occurrence'][f'test_{key}'] = 0
             return True
         return False
 
@@ -109,6 +111,7 @@ class Checker:
             is_valid = True if is_valid == 'True' else False
             if is_valid:
                 self.count_errors['valid'].append(f'test_{key}')
+                self.count_errors['First Error Occurrence'][f'test_{key}'] = 1
             else:
                 if not self.check_timeout(lines, key):
                     print_state = self.error_occurrence(lines, key)
