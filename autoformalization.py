@@ -43,7 +43,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Autoformalization with LLMs')
     parser.add_argument('--model_name', default='gpt-4o-2024-05-13',
                         help='name of the LLM')
-    parser.add_argument('--result_json', default='results/gpt_4o_wiki_zs.json',
+    parser.add_argument('--result_json', default='results/def_wiki/gpt_4o_zs.json',
                         help='json file to store results')
     parser.add_argument('--prompt_json', default='prompts/zs.json',
                         help='json file to store prompt')
@@ -51,7 +51,7 @@ if __name__ == '__main__':
                         help='json file containing test data')
     parser.add_argument('--formal_def_json', default='data/formal_def.json',
                         help='json file containing grounded formal definitions')
-    parser.add_argument('--previous_json', default='results/gpt_4o_wiki_zs.json',
+    parser.add_argument('--previous_json', default='results/def_wiki/gpt_4o_zs.json',
                         help='json file containing previous results')
     parser.add_argument('--openai_api', default='api_key.txt',
                         help='openai api key txt file')
