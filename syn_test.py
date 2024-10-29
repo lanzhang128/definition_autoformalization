@@ -92,7 +92,7 @@ class IsabelleChecker:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='model evaluation')
-    parser.add_argument('--result_json', default='results/gpt_4o_wiki_zs.json',
+    parser.add_argument('--result_json', default='results/def_wiki/gpt_4o_wiki_zs.json',
                         help='json file to store results')
     parser.add_argument('--test_json', default='data/def_wiki.json',
                         help='json file containing test data')

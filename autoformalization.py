@@ -101,7 +101,7 @@ if __name__ == '__main__':
         if model_name == 'deepseek':
             model_id = 'deepseek-ai/deepseek-math-7b-instruct'
         elif model_name == 'llama':
-            model_id = 'meta-llama/Llama-3.1-8B-Instruct'
+            model_id = 'meta-llama/Meta-Llama-3-8B-Instruct'
         else:
             raise NotImplementedError
 
@@ -145,9 +145,10 @@ if __name__ == '__main__':
             template = tokenizer.batch_decode(encodeds)[0]
             formal = formal[formal.find(template) + len(template):]
 
-            eos = '<｜end▁of▁sentence｜>'
-            if formal[-len(eos):] == eos:
-                formal = formal[:-len(eos)]
+            if model_name == 'deepseek':
+                eos = '<｜end▁of▁sentence｜>'
+                if formal[-len(eos):] == eos:
+                    formal = formal[:-len(eos)]
 
         result_dic[key] = {'latex': latex, 'preliminary': preliminary, 'statement': formal}
 
