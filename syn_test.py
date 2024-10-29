@@ -8,7 +8,12 @@ import re
 
 
 def gpt_postprocess(text):
-    return text.replace('```isabelle', '').replace('```', '')
+    code = re.findall('```isabelle.*?```', text, flags=re.DOTALL)
+    if code:
+        code = code[0]
+    else:
+        code = text
+    return code.replace('```isabelle', '').replace('```', '')
 
 
 def handler(signum, frame):

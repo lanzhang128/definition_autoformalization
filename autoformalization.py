@@ -1,6 +1,8 @@
 import json
 import argparse
 import os.path
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 from openai import OpenAI
 import tenacity
@@ -90,10 +92,21 @@ if __name__ == '__main__':
         previous = False
 
     result_dic = {}
-    with open(args.openai_api, 'r', encoding='utf-8') as f:
-        api_key = f.read()
+    if 'gpt' in model_name:
+        with open(args.openai_api, 'r', encoding='utf-8') as f:
+            api_key = f.read()
 
-    model = OpenAIModel(api_key=api_key, engine=model_name)
+        model = OpenAIModel(api_key=api_key, engine=model_name)
+    else:
+        if model_name == 'deepseek':
+            model_id = 'deepseek-ai/deepseek-math-7b-instruct'
+        elif model_name == 'llama':
+            model_id = 'meta-llama/Llama-3.1-8B-Instruct'
+        else:
+            raise NotImplementedError
+
+        model = AutoModelForCausalLM.from_pretrained(model_id, device_map='auto', torch_dtype=torch.float16)
+        tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=True)
 
     for key in tqdm(json_dic.keys()):
         latex = json_dic[key]['latex']
@@ -119,10 +132,22 @@ if __name__ == '__main__':
             user_content = user_content.replace('{error_details}', all_syntax_error)
         messages = [{'role': 'user', 'content': user_content}]
 
-        formal = model.chat(messages)
+        if 'gpt' in model_name:
+            formal = model.chat(messages)
+        else:
+            encodeds = tokenizer.apply_chat_template(messages, return_tensors='pt')
+            model_inputs = encodeds.to('cuda')
+            generated_ids = model.generate(model_inputs, max_new_tokens=1000,
+                                           do_sample=False, pad_token_id=tokenizer.eos_token_id)
+            decoded = tokenizer.batch_decode(generated_ids)
 
-        if formal[-4:] == '</s>':
-            formal = formal[:-4]
+            formal = decoded[0]
+            template = tokenizer.batch_decode(encodeds)[0]
+            formal = formal[formal.find(template) + len(template):]
+
+            eos = '<｜end▁of▁sentence｜>'
+            if formal[-len(eos):] == eos:
+                formal = formal[:-len(eos)]
 
         result_dic[key] = {'latex': latex, 'preliminary': preliminary, 'statement': formal}
 
