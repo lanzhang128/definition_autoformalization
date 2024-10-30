@@ -2,6 +2,7 @@ import json
 import argparse
 import os.path
 import torch
+import transformers
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 from openai import OpenAI
@@ -102,6 +103,7 @@ if __name__ == '__main__':
             model_id = 'deepseek-ai/deepseek-math-7b-instruct'
         elif model_name == 'llama':
             model_id = 'meta-llama/Meta-Llama-3-8B-Instruct'
+            transformers.logging.set_verbosity_error()
         else:
             raise NotImplementedError
 
@@ -138,7 +140,8 @@ if __name__ == '__main__':
             encodeds = tokenizer.apply_chat_template(messages, return_tensors='pt')
             model_inputs = encodeds.to('cuda')
             generated_ids = model.generate(model_inputs, max_new_tokens=1000,
-                                           do_sample=False, pad_token_id=tokenizer.eos_token_id)
+                                           do_sample=False,
+                                           pad_token_id=tokenizer.eos_token_id)
             decoded = tokenizer.batch_decode(generated_ids)
 
             formal = decoded[0]
@@ -149,6 +152,15 @@ if __name__ == '__main__':
                 eos = '<｜end▁of▁sentence｜>'
                 if formal[-len(eos):] == eos:
                     formal = formal[:-len(eos)]
+
+            if model_name == 'llama':
+                eos = '<|eot_id|>'
+                if formal[-len(eos):] == eos:
+                    formal = formal[:-len(eos)]
+
+                prefix = '<|start_header_id|>assistant<|end_header_id|>\n\n'
+                if formal[:len(prefix)] == prefix:
+                    formal = formal[len(prefix):]
 
         result_dic[key] = {'latex': latex, 'preliminary': preliminary, 'statement': formal}
 

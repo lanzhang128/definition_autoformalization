@@ -8,12 +8,26 @@ import re
 
 
 def gpt_postprocess(text):
+    return text.replace('```isabelle', '').replace('```', '')
+
+
+def deepseek_postprocess(text):
     code = re.findall('```isabelle.*?```', text, flags=re.DOTALL)
     if code:
         code = code[0]
     else:
         code = text
-    return code.replace('```isabelle', '').replace('```', '')
+    return gpt_postprocess(code)
+
+
+def llama_postprocess(text):
+    trigger = 'Isabelle/HOL:\n\n'
+    trigger_start = text.find(trigger)
+    if trigger_start != -1:
+        code = text[trigger_start+len(trigger):]
+    else:
+        code = text
+    return deepseek_postprocess(code)
 
 
 def handler(signum, frame):
@@ -115,11 +129,20 @@ if __name__ == '__main__':
     with open(args.result_json, 'r', encoding='utf-8') as f:
         res_dic = json.load(f)
 
+    if 'gpt' in args.result_json:
+        postprocess_fn = gpt_postprocess
+    elif 'deepseek' in args.result_json:
+        postprocess_fn = deepseek_postprocess
+    elif 'llama' in args.result_json:
+        postprocess_fn = llama_postprocess
+    else:
+        raise NotImplementedError
+
     imports = []
     codes = []
     for key in res_dic.keys():
         temp_imports = []
-        statement = gpt_postprocess(res_dic[key]['statement'])
+        statement = postprocess_fn(res_dic[key]['statement'])
         if args.main_body:
             temp_imports.append('Main')
             defs = json_dic[key]['possible_related_formal_defs']
