@@ -90,7 +90,11 @@ class Checker:
             else:
                 header += 1
         first_error_line_index = error_lines[0] - header - 1
-        main_body = lines[header:-1]
+        if first_error_line_index < 0:
+            main_body = lines
+            first_error_line_index = error_lines[0] - 1
+        else:
+            main_body = lines[header:-1]
         num_correct_lines = first_error_line_index
         blank_lines = []
         for i in range(len(main_body)):
@@ -122,6 +126,8 @@ class Checker:
 
                     error_lines = ast.literal_eval(lines[1][lines[1].find('['):-1])
                     feo = self.check_first_error_occurrence(error_lines, error_log_path[:-9] + 'thy')
+                    if feo < 0:
+                        print(f'test_{key}')
                     self.count_errors['First Error Occurrence'][f'test_{key}'] = feo
 
                 self.count_errors['invalid'].append(f'test_{key}')
