@@ -34,6 +34,8 @@ def parse_error_file(error_log_path, thy_file_path):
         with open(thy_file_path, 'r', encoding='utf-8') as f:
             thy_lines = f.readlines()
 
+        symbols = isabelle_symbols(thy_file_path)
+
         all_syntax_error = ''
         first_syntax_error = ''
         for i, line_number in enumerate(error_lines):
@@ -43,7 +45,7 @@ def parse_error_file(error_log_path, thy_file_path):
             detail = errors_details[i]
             line, start, end = int(detail.split()[3][:-1]), int(detail.split()[5][:-1]), int(detail.split()[7][:-1])
             assert line == error_lines[i]
-            trigger = offset_transfer(thy_file_path, start, end)
+            trigger = ''.join(symbols[start-1:end-1])
             message = detail[detail.find(':')+2:]
             syntax_error = (f'Identified error on line: {line}, trigger: {trigger}\n'
                             f'Error message: {message}\n')
@@ -59,7 +61,7 @@ def parse_error_file(error_log_path, thy_file_path):
     return validity, first_syntax_error, all_syntax_error
 
 
-def offset_transfer(thy_file_path, start, end):
+def isabelle_symbols(thy_file_path):
     with open(thy_file_path, 'r', encoding='utf-8') as f:
         isabelle_text = f.read()
     symbols = []
@@ -69,6 +71,10 @@ def offset_transfer(thy_file_path, start, end):
             symbols.append(isabelle_text[i])
             i += 1
         else:
+            if i == len(isabelle_text) - 1:
+                symbols.append(isabelle_text[i])
+                i += 1
+                continue
             if isabelle_text[i+1] != '<':
                 symbols.append(isabelle_text[i])
                 i += 1
@@ -86,4 +92,8 @@ def offset_transfer(thy_file_path, start, end):
                         symbols.append(isabelle_text[i:j+1])
                         i = j + 1
                         break
-    return ''.join(symbols[start-1:end-1])
+                if j == len(isabelle_text):
+                    symbols.append(isabelle_text[i])
+                    i = i + 1
+                    continue
+    return symbols

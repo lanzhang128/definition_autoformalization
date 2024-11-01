@@ -84,7 +84,7 @@ class Checker:
 
         header = 0
         while header < len(lines):
-            if lines[header][:5] == 'begin':
+            if 'begin' in lines[header]:
                 header += 1
                 break
             else:
@@ -98,8 +98,10 @@ class Checker:
                 blank_lines.append(i)
                 if first_error_line_index > i:
                     num_correct_lines -= 1
-
-        return num_correct_lines / (len(main_body) - len(blank_lines))
+        if (len(main_body)) == len(blank_lines):
+            return 0
+        else:
+            return num_correct_lines / (len(main_body) - len(blank_lines))
 
     def check(self, keys, files_dir):
         for key in tqdm(keys):
