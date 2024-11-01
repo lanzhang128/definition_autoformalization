@@ -29,7 +29,7 @@ class Checker:
             'valid': [],
             'invalid': [],
             'Time Run-Out': [],
-            'Fake Non-Exist Theory': []}
+            'Invalid Imports': []}
         for err in self.errors.keys():
             self.count_errors[err] = {'case': [], 'occur': []}
         for cat in self.errors.values():
@@ -69,7 +69,7 @@ class Checker:
                 self.count_errors['Time Run-Out'].append(f'test_{key}')
                 self.count_errors['First Error Occurrence'][f'test_{key}'] = 0
             else:
-                self.count_errors['Fake Non-Exist Theory'].append(f'test_{key}')
+                self.count_errors['Invalid Imports'].append(f'test_{key}')
                 self.count_errors['First Error Occurrence'][f'test_{key}'] = 0
             return True
         return False
@@ -128,7 +128,7 @@ class Checker:
 
     def error_statistics(self, total):
         num_zeros = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
-                     - len(self.count_errors['Fake Non-Exist Theory']))
+                     - len(self.count_errors['Invalid Imports']))
         res_dic = {}
         for err in self.errors.keys():
             res_dic[err] = {
@@ -143,7 +143,7 @@ class Checker:
 
     def category_statistics(self, total):
         num_zeros = (len(self.count_errors['invalid']) - len(self.count_errors['Time Run-Out'])
-                     - len(self.count_errors['Fake Non-Exist Theory']))
+                     - len(self.count_errors['Invalid Imports']))
         res_dic = {}
         for cat in self.errors.values():
             res_dic[cat] = {
@@ -162,7 +162,7 @@ class Checker:
             'First Error Occurrence': sum(self.count_errors['First Error Occurrence'].values())
                                       / len(self.count_errors['First Error Occurrence'].values()),
             'Time Run-Out': len(self.count_errors['Time Run-Out']) / total,
-            'Fake Non-Exist Theory': len(self.count_errors['Fake Non-Exist Theory']) / total
+            'Invalid Imports': len(self.count_errors['Invalid Imports']) / total
         }
         return percent
 
