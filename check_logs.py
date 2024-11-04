@@ -126,8 +126,6 @@ class Checker:
 
                     error_lines = ast.literal_eval(lines[1][lines[1].find('['):-1])
                     feo = self.check_first_error_occurrence(error_lines, error_log_path[:-9] + 'thy')
-                    if feo < 0:
-                        print(f'test_{key}')
                     self.count_errors['First Error Occurrence'][f'test_{key}'] = feo
 
                 self.count_errors['invalid'].append(f'test_{key}')

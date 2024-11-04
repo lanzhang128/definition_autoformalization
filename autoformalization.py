@@ -130,6 +130,8 @@ if __name__ == '__main__':
             user_content = user_content.replace('{previous}', previous_code)
 
             validity, first_syntax_error, all_syntax_error = parse_error_file(error_log_path, thy_file_path)
+            if len(all_syntax_error) > 15000:
+                all_syntax_error = all_syntax_error[:15000]
             user_content = user_content.replace('{correctness}', str(validity))
             user_content = user_content.replace('{error_details}', all_syntax_error)
         messages = [{'role': 'user', 'content': user_content}]
