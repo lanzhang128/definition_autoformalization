@@ -133,7 +133,7 @@ if __name__ == '__main__':
         postprocess_fn = gpt_postprocess
     elif 'deepseek' in args.result_json:
         postprocess_fn = deepseek_postprocess
-    elif 'llama' in args.result_json:
+    elif 'llama' in args.result_json or 'mistral' in args.result_json:
         postprocess_fn = llama_postprocess
     else:
         raise NotImplementedError

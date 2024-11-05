@@ -103,6 +103,8 @@ if __name__ == '__main__':
             model_id = 'deepseek-ai/deepseek-math-7b-instruct'
         elif model_name == 'llama':
             model_id = 'meta-llama/Meta-Llama-3-8B-Instruct'
+        elif model_name == 'mistral':
+            model_id = 'mistralai/Mistral-7B-Instruct-v0.2'
             transformers.logging.set_verbosity_error()
         else:
             raise NotImplementedError
@@ -163,6 +165,10 @@ if __name__ == '__main__':
                 prefix = '<|start_header_id|>assistant<|end_header_id|>\n\n'
                 if formal[:len(prefix)] == prefix:
                     formal = formal[len(prefix):]
+
+            if model_name == 'mistral':
+                eos = '</s>'
+                formal = formal[:-len(eos)]
 
         result_dic[key] = {'latex': latex, 'preliminary': preliminary, 'statement': formal}
 
