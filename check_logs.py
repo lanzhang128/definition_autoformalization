@@ -182,7 +182,7 @@ class Checker:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='model evaluation')
-    parser.add_argument('--folder', default='results/def_wiki/gpt_4o_zs_all',
+    parser.add_argument('--folder', default='results/def_wiki/gpt_4o_zs_direct',
                         help='folder containing error log files')
     parser.add_argument('--test_json', default='data/def_wiki_test.json',
                         help='json file containing test data')

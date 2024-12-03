@@ -86,7 +86,7 @@ if __name__ == '__main__':
 
     if '{{previous}}' in prompt_content:
         previous = True
-        error_files_dir = args.previous_json[:-5] + '_all'
+        error_files_dir = args.previous_json[:-5] + '_direct'
         if not os.path.exists(error_files_dir):
             raise FileNotFoundError(f'{error_files_dir} does not exist.')
     else:

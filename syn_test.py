@@ -169,9 +169,9 @@ if __name__ == '__main__':
                               timeout=args.timeout)
     files_dir = args.result_json[:-5]
     if args.main_body:
-        files_dir += '_main'
+        files_dir += '_fdg'
     else:
-        files_dir += '_all'
+        files_dir += '_direct'
     score_dic.update(checker.evaluate(files_dir=files_dir,
                                       keys=res_dic.keys(),
                                       imports=imports,
