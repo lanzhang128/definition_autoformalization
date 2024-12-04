@@ -1,5 +1,6 @@
 import ast
 import os
+import re
 
 
 def write_to_thy_file(file_path, theory_name, import_thy, code):
@@ -97,3 +98,71 @@ def isabelle_symbols(thy_file_path):
                     i = i + 1
                     continue
     return symbols
+
+
+def fix_bracket(code):
+    new_code = ''
+    while len(code) > 0:
+        start = code.find('\\<')
+        if start != -1:
+            end = start + 2
+            length = len(code)
+            if end < length:
+                if code[end] == '^':
+                    end += 1
+                while end < length:
+                    if code[end] == '>':
+                        new_code += code[:end+1]
+                        code = code[end+1:]
+                        break
+                    elif 65 <= ord(code[end]) <= 90 or 97 <= ord(code[end]) <= 122:
+                        end = end + 1
+                    else:
+                        new_code += code[:end]+'>'
+                        code = code[end:]
+                        break
+                if end == length:
+                    new_code += code[:end] + '>'
+                    code = code[end:]
+            else:
+                break
+        else:
+            new_code += code
+            code = ''
+    return new_code
+
+
+map_latex_math_to_isabelle = {}
+for i in range(65, 91):
+    map_latex_math_to_isabelle['\\<mathcal>{' + chr(i) + '}'] = '\\<' + chr(i) + '>'
+    map_latex_math_to_isabelle['\\<mathfrak>{' + chr(i) + '}'] = '\\<' + chr(i) + chr(i) + '>'
+    map_latex_math_to_isabelle['\\<mathfrak>{' + chr(i + 32) + '}'] = '\\<' + chr(i + 32) + chr(i + 32) + '>'
+    map_latex_math_to_isabelle['\\<mathbb>{' + chr(i) + '}'] = '\\<bbb' + chr(i) + '>'
+    map_latex_math_to_isabelle['\\<mathbf>{' + chr(i) + '}'] = '\\<^bold>' + chr(i)
+    map_latex_math_to_isabelle['\\<mathbf>{' + chr(i + 32) + '}'] = '\\<^bold>' + chr(i + 32)
+    map_latex_math_to_isabelle['\\<mathit>{' + chr(i) + '}'] = chr(i)
+    map_latex_math_to_isabelle['\\<mathit>{' + chr(i + 32) + '}'] = chr(i + 32)
+map_latex_math_to_isabelle['\\<mathbb>{B}'] = '\\<bool>'
+map_latex_math_to_isabelle['\\<mathbb>{C}'] = '\\<complex>'
+map_latex_math_to_isabelle['\\<mathbb>{N}'] = '\\<nat>'
+map_latex_math_to_isabelle['\\<mathbb>{Q}'] = '\\<rat>'
+map_latex_math_to_isabelle['\\<mathbb>{R}'] = '\\<real>'
+map_latex_math_to_isabelle['\\<mathbb>{Z}'] = '\\<int>'
+
+
+def fix_mapping_math(code):
+    new_code = code
+    symbols = re.findall(r'\\<mathcal>\{.*?\}|\\<mathfrak>\{.*?\}|\\<mathbb>\{.*?\}', code, flags=re.DOTALL)
+    if symbols:
+        for symbol in list(set(symbols)):
+            try:
+                new_code = new_code.replace(symbol, map_latex_math_to_isabelle[symbol])
+            except KeyError:
+                print(f'{symbol} is not in Isabelle.')
+
+    new_code = new_code.replace('\\<mathcal>', '')
+    new_code = new_code.replace('\\<mathfrak>', '')
+    new_code = new_code.replace('\\<mathbb>', '')
+    new_code = new_code.replace('\\<mathbf>', '')
+    new_code = new_code.replace('\\<mathit>', '')
+    return new_code

@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 from tqdm import tqdm
-from isabelle import Isabelle, write_to_thy_file, write_error_to_file
+from isabelle import Isabelle, write_to_thy_file, write_error_to_file, fix_bracket, fix_mapping_math
 import signal
 import re
 
@@ -116,8 +116,8 @@ if __name__ == '__main__':
                         help='main body timeout in seconds\n'
                              'if positive then enable addition of imports time\n'
                              'if negative then its absolute value is used as the timeout for all')
-    parser.add_argument('--main_body', action='store_true',
-                        help='only extract main body code from results')
+    parser.add_argument('--fdg', action='store_true', help='apply formal definition grounding')
+    parser.add_argument('--sr', action='store_true', help='apply symbolic refinement')
     args = parser.parse_args()
 
     with open(args.test_json, 'r', encoding='utf-8') as f:
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     for key in res_dic.keys():
         temp_imports = []
         statement = postprocess_fn(res_dic[key]['statement'])
-        if args.main_body:
+        if args.fdg:
             temp_imports.append('Main')
             defs = json_dic[key]['possible_related_formal_defs']
             for d in defs:
@@ -160,6 +160,8 @@ if __name__ == '__main__':
             else:
                 code = 'imports Main\nbegin\n' + statement + '\nend'
         imports.append(list(set(temp_imports)))
+        if args.sr:
+            code = fix_mapping_math(fix_bracket(code))
         codes.append(code)
 
     score_dic = {}
@@ -168,10 +170,13 @@ if __name__ == '__main__':
                               server_log_file=args.result_json[:-4] + 'log',
                               timeout=args.timeout)
     files_dir = args.result_json[:-5]
-    if args.main_body:
+    if args.fdg:
         files_dir += '_fdg'
     else:
         files_dir += '_direct'
+    
+    if args.sr:
+        files_dir += '_sr'
     score_dic.update(checker.evaluate(files_dir=files_dir,
                                       keys=res_dic.keys(),
                                       imports=imports,
