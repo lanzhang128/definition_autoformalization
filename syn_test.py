@@ -38,12 +38,10 @@ class IsabelleChecker:
     def __init__(self,
                  session_name='HOL',
                  server_log_file='server.log',
-                 isabelle_dirs=None,
                  watchdog_timeout=60,
                  timeout=120):
         self.checker = Isabelle(session_name=session_name,
                                 log_file=server_log_file,
-                                dirs=isabelle_dirs,
                                 watchdog_timeout=watchdog_timeout)
         self.timeout = timeout
         self.imports_time = {
