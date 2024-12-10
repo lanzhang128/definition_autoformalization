@@ -45,9 +45,9 @@ class IsabelleChecker:
                                 watchdog_timeout=watchdog_timeout)
         self.timeout = timeout
         self.imports_time = {
-            "HOL-Analysis": 300,
-            "HOL-Matrix_LP": 20,
-            "HOL-Probability": 600
+            "HOL-Analysis": 400,
+            "HOL-Matrix_LP": 50,
+            "HOL-Probability": 750,
         }
 
     def evaluate(self, files_dir, keys, imports, codes):
