@@ -15,46 +15,47 @@ if __name__ == '__main__':
         # 'ZS+SYN': '#b7e3b1',
         # 'ZS+UDF': '#a8cbe6',
         # 'ZS+TUF': '#d5b3db',
-        '(ZS)+SYN': '#83c888',
-        '(ZS)+UDF': '#6ea8d6',
-        '(ZS)+TUF': '#b890c5',
-        '(ZS)+Detailed+SYN': '#4e9a5d',
-        '(ZS)+Detailed+UDF': '#357abd',
-        '(ZS)+Detailed+TUF': '#9b6aad'
+        '(ZS)+CR-SYN': '#83c888',
+        '(ZS)+CR-UDF': '#6ea8d6',
+        '(ZS)+CR-TUF': '#b890c5',
+        '(ZS)+Detailed+CR-SYN': '#4e9a5d',
+        '(ZS)+Detailed+CR-UDF': '#357abd',
+        '(ZS)+Detailed+CR-TUF': '#9b6aad'
     }
     models = list(colors.keys())
     plt.rcParams['font.family'] = 'Times New Roman'
-    plt.rcParams['font.size'] = 40
+    plt.rcParams['font.size'] = 50
     x = np.arange(len(datasets))
     width = 1 / (len(models) + 3)
     offset = - (len(models) - 1) * width / 2
 
     # individual
-    ylims = [(60, 10), (60, 10), (80, 10), (20, 5)]
+    ylims = [(120, 20), (60, 10), (75, 15), (25, 5)]
     for i in range(len(metrics)):
         ms = metrics[i]
         values = np.vstack([scores[ds].loc[ms][models] for ds in datasets])
-        fig, ax = plt.subplots(figsize=(24, 15))
+        if ms == 'Success':
+            values = 100 - values
+        fig, ax = plt.subplots(figsize=(24, 15), constrained_layout=True)
         for j in range(len(models)):
             loc = x + offset + j * width
             rects = ax.bar(loc, values[:, j], width, label=models[j], color=colors[models[j]])
 
-        ax.legend(markerscale=1.0, loc='upper right', ncols=3)
-        ax.set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_Arxiv'])
+        ax.legend(markerscale=1.0, loc='upper right', ncols=3, fontsize=44)
+        ax.set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_ArXiv'], fontsize=60)
         ax.grid(axis='y', linestyle='--')
-        ax.set_ylabel(f'Percentage (%)')
+        ax.set_ylabel(f'Percentage (%)', fontsize=60)
         ax.set_yticks(range(0, ylims[i][0]+1, ylims[i][1]))
-        plt.tight_layout(pad=0.0)
         plt.savefig(f'ref_{ms}.pdf')
         plt.close()
 
     # combined
-    ylims = [(60, 10), (60, 10), (60, 10), (20, 5)]
+    ylims = [(100, 10), (60, 10), (60, 10), (20, 5)]
     fig, ax = plt.subplots(figsize=(45, 25), nrows=2, ncols=2)
     for i in range(len(metrics)):
         ms = metrics[i]
         values = np.vstack([scores[ds].loc[ms][models] for ds in datasets])
-        if ms == 'Overall':
+        if ms == 'Success':
             values = 100 - values
         for j in range(len(models)):
             loc = x + offset + j * width
@@ -69,8 +70,8 @@ if __name__ == '__main__':
     ax[1][0].set_ylabel(f'Percentage (%)')
     ax[0][0].set_xticks([])
     ax[0][1].set_xticks([])
-    ax[1][0].set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_Arxiv'])
-    ax[1][1].set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_Arxiv'])
+    ax[1][0].set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_ArXiv'])
+    ax[1][1].set_xticks(x, ['MiniF2F Test', 'Def_Wiki Test', 'Def_ArXiv'])
     plt.tight_layout(pad=0.0)
     plt.savefig(f'ref.pdf')
     plt.close()
