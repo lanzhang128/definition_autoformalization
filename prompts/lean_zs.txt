@@ -1,0 +1,5 @@
+General Instruction:
+You are an expert in \emph{machine learning} and \emph{formal language Lean4}. Given the following definition in LaTeX: {{latex}}, your task is to provide the formal code of this definition in Lean4. The following text might contain some preliminaries to explain the given definition: {{preliminary}}. In case that you need to import any necessary dependent theory files, you should not import any fake theory files.{no_proof}
+
+Output Instruction:
+Give the results directly without any additional explanations.
