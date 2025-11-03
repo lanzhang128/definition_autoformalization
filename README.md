@@ -1,4 +1,4 @@
-# Formalizing Complex Mathematical Statements with LLMs: A Study on Mathematical Definitions
+# Autoformalization in the Wild: Assessing LLMs on Real-World Mathematical Definitions
 ## File Description
 **autoformalization.py** and **autoformalization_lean.py** are used for performing zero-shot autoformalization and refinement experiments in Isabelle/HOL and Lean4, respectively. **syn_test.py** and **syn_test_lean.py** are used for checking syntax errors for formal codes. The implementation of Lean4 theorem prover is from this repository: https://github.com/lanzhang128/multi_agent_autoformalization. **check_logs.py** is used for analysing error details for error categories. 
 
@@ -15,16 +15,27 @@ pandoc input.txt -f mediawiki -t latex --standalone -o output.tex
 ## Data, Prompts & Results
 We provide the datasets under **data** folder, prompts under **prompts** folder, and results in [Google Drive](https://drive.google.com/file/d/1NtIo2rwGxrl9Ao-JRSGKVPMvznetnByG/view?usp=sharing).
 
+We also have a dedicated version of dataset on [HuggingFace Dataset](https://huggingface.co/datasets/lanzhang128/Definition-Autoformalization).
+
 ## Cite
 If you find this repository useful, please cite:
 ```
-@misc{zhang2025formalizingcomplexmathematicalstatements,
-      title={Formalizing Complex Mathematical Statements with LLMs: A Study on Mathematical Definitions}, 
-      author={Lan Zhang and Marco Valentino and Andre Freitas},
-      year={2025},
-      eprint={2502.12065},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.12065}, 
+@inproceedings{zhang-etal-2025-autoformalization,
+    title = "Autoformalization in the Wild: Assessing {LLM}s on Real-World Mathematical Definitions",
+    author = "Zhang, Lan  and
+      Valentino, Marco  and
+      Freitas, Andre",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.90/",
+    pages = "1720--1738",
+    ISBN = "979-8-89176-332-6"
 }
 ```
