@@ -35,6 +35,7 @@ If you find this repository useful, please cite:
     address = "Suzhou, China",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2025.emnlp-main.90/",
+    doi = "10.18653/v1/2025.emnlp-main.90",
     pages = "1720--1738",
     ISBN = "979-8-89176-332-6"
 }
